@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			///好友发消息 - 接口
+			/*	login(function(r1){
+				
+					if(r1){
+						
+						getUserList(function(r2){
+							
+							if(re){
+								
+								sendMessage(function(r3){
+									
+									if(r3){
+										alert("发送消息成功!")
+									}
+								})
+								
+							}
+							
+						})
+					}
+				
+				
+				
+				})
+			*/		
+			
+			
+			
+			
+			//下载数据
+			function requestUrl(url){
+				
+				//创建promise
+				var promise = new Promise(function(resolve,reject){
+					
+					var b = 1
+					
+					if(url == 'getUserList'){
+						b = 0
+					}
+					
+					//模拟数据下载
+					setTimeout(function () {
+						
+						if(b){
+							resolve(url+' 111')
+						}else{
+							reject(url+" download faild")
+						}
+						
+					},2000)
+					
+				})
+				
+				return promise;
+			}
+			
+			//异步解决方案
+			//	异步调用转化顺序调用, 看起来像是同步的
+			//	async function
+			async function request(){
+				
+				//login
+				var r1 = await requestUrl("login")
+				console.log("r1 = "+r1)
+				
+				var r2 = await requestUrl("getUserList")
+				console.log("r2 = "+r2)
+				
+				var r3 = await requestUrl("sendMessage")
+				console.log("r3 = "+r3)
+				
+				
+			}
+			
+			request().then(function(){
+				console.log("全部下载成功!")
+			}).catch(function(error){
+				console.log("下载失败 error="+error)
+			})
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

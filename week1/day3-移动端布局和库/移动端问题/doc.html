@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+<h2>移动端常见问题</h2>
+
+<pre>
+	
+目录
+	面试题: 你在开发过程中,常见移动端问题是啥?
+
+	1.viewport缩放问题
+	
+	2.300ms问题
+	
+	3.点击穿透问题
+	
+	4.1px border问题
+	
+	5.滚动条问题
+	
+	6.Retina 显示屏问题
+	
+课程内容
+
+	1.viewport缩放问题
+	
+		有的是移动端没有加 viewport,
+		问题:
+			双击能放大, 页面文字特别小
+			
+		解决:
+			添加viewport 视口
+	
+	2.300ms问题
+	
+		移动端点击的时候反应有点慢
+		问题:
+			有可能是300ms问题
+			
+		解决:
+			(1) 使用 touchstart
+			(2) 使用 fastclick
+	
+	3.点击穿透问题
+	
+		touchstart下面有click事件,或者a标签
+		
+		问题:
+			点击了上面, 下面事件也执行了
+			
+		解决:
+			(1) 全部使用 touchstart
+			(2) 全部使用 click
+			(3) 使用 fastclick
+	
+	4.1px border问题
+	
+		问题:
+			高清屏上边框较粗
+		解决:
+			(1) 用伪类加200%x200%的边框,scale(.5)
+	
+	5.滚动条问题
+	
+		问题: 内容较长,超出屏幕范围,有滚动条
+		
+		解决:
+			使用 iScroll 实现无滚动条滚动
+	
+	
+	6.Retina 显示屏问题
+	
+		问题: 在高清屏,背景图有点虚
+		
+		解决:
+				100x100的div
+				设置背景图 200x200
+				同时设置 background-size:100% 100%
+	
+	
+	7.html5新标签不能用
+	
+		问题: html5新标签在低版本ie ie9 
+		
+		解决:
+			使用 html5shiv.js
+	
+	8.css3不能用
+	
+		问题: css3低版本ie不能用
+			respond.js
+			
+	9.还有很多问题
+		遇到了自己解决
+	
+</pre>
+		
+		
+	</body>
+</html>

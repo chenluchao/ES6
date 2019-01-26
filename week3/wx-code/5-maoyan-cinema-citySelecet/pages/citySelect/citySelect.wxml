@@ -1,0 +1,94 @@
+<!--pages/citySelect/citySelect.wxml-->
+<!-- <text>pages/citySelect/citySelect.wxml</text> -->
+
+
+<view class='page'>
+
+  <scroll-view class="scroll-view" scroll-y scroll-into-view="{{scrollId}}">
+
+    <view id="location" class="section">
+      <view class="section-title">
+        定位城市
+      </view>
+      <view class="section-list">
+        <view class="location-item" wx:if="{{locationStatus==1}}">
+          <!-- 定位失败，请点击重试 -->
+          {{locationStatus==1?'开始定位...':''}}
+          
+        </view>
+        <view class="location-item" 
+          wx:if="{{locationStatus==2}}" 
+          bindtap="dealSelectCity" data-item="{{locationCity}}" >
+          {{locationStatus==2?locationCity.nm:''}}
+        </view>
+
+        <view class="location-item" wx:if="{{locationStatus==3}}">
+          {{locationStatus==3?'定位失败，请点击重试':''}}
+        </view>
+      </view>
+    </view>
+
+    <view id="history" class="section">
+      <view class="section-title">
+        最近访问城市
+      </view>
+      <view class="section-list">
+        <view class="hot-item" >
+          北京
+        </view>
+        <view class="hot-item" >
+          北京
+        </view>
+        <view class="hot-item" >
+          北京
+        </view>
+        <view class="hot-item" >
+          北京
+        </view>
+        <view class="hot-item" >
+          北京
+        </view>
+        
+      </view>
+    </view>
+
+    <view id="hot" class="section">
+      <view class="section-title">
+        热门城市
+      </view>
+      <view class="section-list">
+        <view class="hot-item" wx:for="{{hot}}" wx:key="{{index}}" bindtap="dealSelectCity" data-item="{{item}}">
+          {{item.nm}}
+        </view>
+      </view>
+    </view>
+
+    <view class="section" wx:for="{{group}}" wx:key="{{index}}" id="{{item.b}}">
+      <view class="section-title">
+        {{item.b}}
+      </view>
+      <view class="section-list list">
+        <view class="plain-item" 
+          wx:for="{{item.list}}" 
+          wx:for-item="cityItem" 
+          wx:for-index="cityIndex"
+          wx:key="{{cityIndex}}"
+          bindtap="dealSelectCity" data-item="{{cityItem}}">
+          {{cityItem.nm}}
+        </view>
+      </view>
+    </view>
+
+  </scroll-view>
+
+  <view class='nav' >
+    <view bindtap="dealNav" data-id="location">定位</view>
+    <view bindtap="dealNav" data-id="history">最近</view>
+    <view bindtap="dealNav" data-id="hot">热门</view>
+    <view  wx:for="{{group}}" wx:key="{{index}}"  bindtap="dealNav" data-id="{{item.b}}">
+      {{item.b}}
+    </view>
+
+  </view>
+
+</view>

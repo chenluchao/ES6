@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			///好友发消息 - 接口
+			/*	login(function(r1){
+				
+					if(r1){
+						
+						getUserList(function(r2){
+							
+							if(re){
+								
+								sendMessage(function(r3){
+									
+									if(r3){
+										alert("发送消息成功!")
+									}
+								})
+								
+							}
+							
+						})
+					}
+				
+				
+				
+				})
+			*/		
+			
+			
+			
+			
+			//下载数据
+			function requestUrl(url){
+				
+				//创建promise
+				var promise = new Promise(function(resolve,reject){
+					
+					var b = 1
+					if(url == 'getUserList'){
+						b = 0
+					}
+					
+					//模拟数据下载
+					setTimeout(function () {
+						
+						if(b){
+							resolve(url+'-111')
+						}else{
+							reject(url+"-download faild")
+						}
+						
+					},2000)
+					
+				})
+				
+				return promise;
+			}
+			
+			/*
+			//Step1: 调用requestUrl函数- 返回promise
+			//Step2: 通过.then传入一个匿名函数, 成功
+			//Step3: 通过.catch传入一个匿名函数, 失败
+			requestUrl("login").then(function(data){
+				console.log("data = "+data)
+			}).catch(function(error){
+				console.log("error = "+error)
+			})*/
+			
+			requestUrl("login").then(function(data){
+				console.log("data = "+data)
+				
+				return requestUrl("getUserList");
+				
+			}).then(function(data){
+				console.log("data = "+data)
+				
+				return requestUrl("sendMessage");
+			}).then(function(data){
+				console.log("data = "+data)
+				
+				console.log("3个请求成功")
+			}).catch(function(error){
+				console.log("下载出错了 error="+error)
+			})
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

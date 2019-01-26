@@ -1,0 +1,3 @@
+<!--pages/cinema/cinema.wxml-->
+<text>这是影院列表</text>
+<navigator url="/pages/cinemaDetail/cinemaDetail">跳转到影院详情</navigator>

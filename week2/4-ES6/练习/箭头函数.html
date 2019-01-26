@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function f(callback){
+				callback();
+			}
+			
+			//方式1
+			f(function(){
+				console.log("hehe");
+			})
+			
+			//方式2
+			f(()=>{
+				console.log("hehe");
+			})
+			
+		</script>
+	</body>
+</html>

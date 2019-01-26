@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<header>
+			头部：logo、搜索框
+		</header>
+		<hr />
+
+		<nav>
+			首页/我们/新闻/关于
+		</nav>
+		<hr />
+
+		<section>
+			<aside>
+				左边框
+			</aside>
+			<article>
+				内容
+			</article>
+			<aside>
+				右边框
+			</aside>
+		</section>
+		<hr />
+
+		<footer>
+			尾部：友情链接、版权信息
+		</footer>
+		<hr />
+
+		<dialog>
+			<p>对话框</p>
+		</dialog>
+		<button onclick="dealopen()">打开/关闭</button>
+		<script type="text/javascript">
+			function dealopen() {
+				var open = document.querySelector("dialog");
+				if(open.getAttribute("open") == null) {
+					open.setAttribute("open", "");
+				} else {
+					open.removeAttribute("open")
+				}
+			}
+		</script>
+		<hr />
+
+		<details>
+			<summary>
+				点击展开评论
+			</summary>
+			<ul>
+				<li>内容1</li>
+				<li>内容2</li>
+				<li>内容3</li>
+			</ul>
+		</details>
+
+	</body>
+
+</html>

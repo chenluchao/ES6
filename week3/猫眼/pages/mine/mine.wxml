@@ -1,0 +1,4 @@
+<!--pages/mine/mine.wxml-->
+<text>这里有登录</text>
+<navigator url="/pages/register/register">跳转立即注册</navigator>
+<navigator url="/pages/resetreq/resetreq">跳转找回密码</navigator>

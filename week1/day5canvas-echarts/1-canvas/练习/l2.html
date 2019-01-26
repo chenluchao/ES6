@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			canvas{
+				border: 1px solid black;
+				margin-left: 460px;
+				margin-top: 50px;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		<script type="text/javascript">
+			var myCanvas=document.getElementById("myCanvas");
+			var a = myCanvas.getContext("2d");
+			
+			a.beginPath()
+			a.fillStyle="orange"
+			a.moveTo(200,200);
+			a.arc(200,200,180,Math.PI/180*5,Math.PI/180*190);
+			a.fill();
+			
+			a.beginPath()
+			a.fillStyle="blue"
+			a.moveTo(200,200);
+			a.arc(200,200,180,Math.PI/180*-5,Math.PI/180*5);
+			a.fill();
+			
+			a.beginPath()
+			a.fillStyle="aquamarine"
+			a.moveTo(200,200);
+			a.arc(200,200,180,Math.PI/180*-25,Math.PI/180*-5);
+			a.fill();
+			
+			a.beginPath()
+			a.fillStyle="yellow"
+			a.moveTo(200,200);
+			a.arc(200,200,180,Math.PI/180*-35,Math.PI/180*-25);
+			a.fill();
+			
+			a.beginPath()
+			a.fillStyle="lightsalmon"
+			a.moveTo(200,200);
+			a.arc(200,200,180,Math.PI/180*-70,Math.PI/180*-35);
+			a.fill();
+			
+			a.beginPath()
+			a.fillStyle="springgreen"
+			a.moveTo(195,195);
+			a.arc(195,195,180,Math.PI/180*-170,Math.PI/180*-70);
+			a.fill();
+			
+			//矩形
+			a.beginPath()
+			a.fillStyle="white";
+			a.strokeStyle="black"
+			a.rect(20,8,75,100);
+			a.stroke();
+			a.fill();
+			
+			a.beginPath();
+			a.fillStyle="orange";
+			a.rect(25,15,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("IE",60,25)
+			
+			a.beginPath();
+			a.fillStyle="springgreen";
+			a.rect(25,90,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("ios",60,98)
+			
+			a.beginPath();
+			a.fillStyle="blue";
+			a.rect(25,30,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("other",60,38)
+			
+			a.beginPath();
+			a.fillStyle="aquamarine";
+			a.rect(25,45,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("Firefox",60,53)
+			
+			a.beginPath();
+			a.fillStyle="yellow";
+			a.rect(25,60,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("Opera",60,70)
+			
+			a.beginPath();
+			a.fillStyle="lightsalmon";
+			a.rect(25,75,30,10);
+			a.fill();
+			a.beginPath();
+			a.fillStyle="black"
+			a.fillText("chrom",60,83);
+			
+		</script>
+	</body>
+</html>

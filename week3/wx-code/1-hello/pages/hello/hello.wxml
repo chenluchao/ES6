@@ -1,0 +1,72 @@
+<!--pages/hello/hello.wxml-->
+<!-- <text>pages/hello/hello.wxml</text> -->
+
+<view>
+  <view>
+    num = {{num}}
+    <button bindtap="dealAdd">+1</button>
+  </view>
+  <view>
+    name = {{name}}
+  </view>
+  <view>
+    list1 = {{list1}}
+  </view>
+  <view>
+    
+    <!-- 循环渲染 -->
+    <view wx:for="{{list1}}" wx:key="{{index}}">
+      {{index}} -> {{item}}
+    </view>
+
+  </view>
+  <view>
+    dog = {{dog}}
+  </view>
+  
+  <view>
+    <view wx:for="{{dog}}" wx:key="{{index}}">
+      {{index}} -> {{item}}
+    </view>
+  </view>
+
+  <!-- 条件渲染 -->
+  <view wx:if="{{isShow}}">
+    我的内容有的时候显示, 有的时候不显示
+  </view>
+
+  <!-- input输入的值如何同步到js的data -->
+  Num1:
+  <input value="{{num1}}" bindinput='dealChange1'></input>
+  Num2:
+  <input value="{{num2}}" bindinput='dealChange2'></input>
+  <button bindtap="dealCalc">计算两数之和</button>
+</view>
+
+<view class="box1">
+view1
+<text>t1</text>
+<text>t2</text>
+</view>
+
+<view id="box2">
+view2
+</view>
+
+<view>
+<input></input>
+</view>
+
+<view>
+<button bindtap="dealClick">按钮1</button>  
+<button>按钮2</button>  
+</view>
+
+<view>
+<image src="../../assets/bg.png"></image>
+</view>
+
+
+
+
+

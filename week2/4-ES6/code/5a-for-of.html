@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			var list = [10,20,30,40]
+			
+			for(var i=0;i<list.length;i++){
+				var item = list[i]
+				console.log(item)
+			}
+			
+			for(var i in list){
+				var item = list[i]
+				console.log(item)
+			}
+			
+			//for-of最简单形式
+			//item直接就是每个值
+			for(var item of list){
+				console.log(item)
+			}
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

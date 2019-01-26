@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8"/>
+		<title></title>
+		<style>
+			body{
+				background-color: cornflowerblue;
+			}
+			/*图片外框设置*/
+			#slider{
+				margin: 250px auto;
+				-webkit-perspective: 1500;
+			}
+			/*x轴保留3D效果*/
+			.x_rot{
+				-webkit-transform-style: preserve-3d; /*子元素将保留其 3D 位置。*/
+				-webkit-animation:x_rot 6s infinite;
+			}
+			/*y轴保留3D效果*/
+			.y_rot {
+				-webkit-transform-style: preserve-3d;
+				-webkit-animation: y_rot 10s linear infinite;
+			}
+			/*xy轴的动画效果*/
+			@-webkit-keyframes x_rot {
+				0%    { -webkit-transform: rotateX(-30deg); }
+				50%   { -webkit-transform: rotateX(30deg); }
+				100%  { -webkit-transform: rotateX(-30deg); }
+			}
+			@-webkit-keyframes y_rot {
+				0%    { -webkit-transform: rotateY(0deg); }
+				50%   { -webkit-transform: rotateY(180deg); }
+				100%  { -webkit-transform: rotateY(360deg); }
+			}
+			/*图片外层设置*/
+			.y_rot div{
+				width:235px;
+				height:235px;
+				position:absolute;
+				left:300px;
+				opacity: 0.8;
+				-webkit-transition: .3s;
+			}
+			/*图片3D旋转+位移*/
+			#i1{
+				-webkit-transform: rotateY(0deg) translateZ(200px);
+			}
+			#i2{
+				-webkit-transform: rotateY(60deg) translateZ(200px);
+			}
+			#i3{
+				-webkit-transform: rotateY(120deg) translateZ(200px);
+			}
+			#i4{
+				-webkit-transform: rotateY(180deg) translateZ(200px);
+			}
+			#i5{
+				-webkit-transform: rotateY(240deg) translateZ(200px);
+			}
+			#i6{
+				-webkit-transform: rotateY(300deg) translateZ(200px);
+			}
+			/*图片设置*/
+			.y_rot img {
+				height:235px;
+				width:235px;
+				-webkit-border-radius: 15px;
+				-webkit-transition: .3s;
+			}
+			/*图片点击事件*/
+
+			#i1 img:hover,#i2 img:hover,#i3 img:hover,#i4 img:hover,#i5 img:hover,#i6 img:hover
+			{
+				transform: scale(1.5);
+			}
+			.x_rot:hover {
+				-webkit-animation-play-state: paused;
+			}
+			.y_rot:hover {
+				-webkit-animation-play-state: paused;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="slider">
+            <div class="x_rot">
+                <div class="y_rot">
+                    <div id="i1">
+                        <img src="img/01.png" />
+                    </div>
+                    <div id="i2">
+                        <img src="img/02.png" />
+                    </div>
+                    <div id="i3">
+                        <img src="img/03.png" />
+                    </div>
+                    <div id="i4">
+                        <img src="img/04.png" />
+                    </div>
+                    <div id="i5">
+                        <img src="img/05.png" />
+                    </div>
+                    <div id="i6">
+                        <img src="img/06.png" />
+                    </div>
+                </div>
+            </div>
+        </div>		
+	</body>
+</html>

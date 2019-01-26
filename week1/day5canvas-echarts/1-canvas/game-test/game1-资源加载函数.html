@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+
+			function loadImages(list, callback) {
+				var count = 0;
+				for (var key in list){
+					count++
+				}
+
+				var dict = {}
+				var loadCount = 0;
+				for (var key in list) {		
+					dict[key] = new Image()
+					dict[key].onload = function() {
+						loadCount++;
+						if (loadCount >= count) {
+							callback(dict)
+						}
+					}
+					dict[key].src = list[key]
+				}
+			}
+			
+			//3张图片
+			var list = {
+				"back2": "img/back2.jpg",
+				"player": "img/player.png",
+			}
+			for(var i=1; i<=18; i++){
+				list["dove"+i] = "img/bird/DOVE "+i+".png"
+			}
+			
+			var dt = 1000/60
+			var count = 0
+			var gameWidth = 400
+			var gameHeight = 400
+			loadImages(list,function (dict) {
+				
+				console.log(dict)
+				
+				setInterval(function () {
+					ctx.clearRect(0,0,gameWidth,gameHeight)
+					
+					ctx.drawImage(dict.back2,0,0,gameWidth,gameHeight)
+					
+					var no = count%18+1
+					ctx.drawImage(dict['dove'+no],100,100)
+					
+					
+					count++
+				},dt)
+			})
+			
+		</script>
+
+	</body>
+</html>

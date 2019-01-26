@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			:root{
+				background: #f90;
+			}
+			@keyframes ani{
+				from{
+					transform: rotateX(0) rotateY(0);
+				}
+				to{
+					transform: rotateX(360deg) rotateY(360deg);
+				}
+			}
+			.box{
+				width: 200px;
+				height: 200px;
+				position: relative;
+				margin: 100px auto;
+			}
+			.bao{
+				width: 200px;
+				height: 200px;
+				margin: 0 auto;
+				transform-style: preserve-3d;
+				animation: ani 10s linear infinite;
+			}
+			.bao>div{
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				opacity: 0.8;
+				transition: all 0.5s;
+			}
+			.bao>div img{
+				width: 200px;
+				height: 200px;
+			}
+			.i1{
+				transform: rotateY(0deg) translateZ(100px);
+			}
+			.i2{
+				transform: rotateY(0deg) translateZ(-100px);
+			}
+			.i3{
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			.i4{
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			.i5{
+				transform: rotateX(90deg) translateZ(100px);
+			}
+			.i6{
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<div class="bao">
+				<div class="i1">
+					<img src="img/1.jpg"/>
+				</div>
+				<div class="i2">
+					<img src="img/2.jpg"/>
+				</div>
+				<div class="i3">
+					<img src="img/3.jpg"/>
+				</div>
+				<div class="i4">
+					<img src="img/4.jpg"/>
+				</div>
+				<div class="i5">
+					<img src="img/5.jpg"/>
+				</div>
+				<div class="i6">
+					<img src="img/6.jpg"/>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

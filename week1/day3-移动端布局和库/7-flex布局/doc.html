@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+<h1>flex布局</h1>		
+
+
+<pre>
+
+目录
+	1.Flex布局基础知识,各个属性和值的使用
+	
+	2.flex容器的6个属性
+	
+	3.flex项目的6个属性
+	
+	4.Flex布局常见布局
+	
+	5.Flex布局实战: 森巢网
+	
+课程内容
+
+1.Flex布局基础知识,各个属性和值的使用
+
+	q.什么是flex,为什么学习flex布局
+	
+		flex称为弹性布局, 或者弹性盒子布局,html5引入的最新布局技术
+		
+		2012年左右出现的布局技术
+		
+		正常网页用的一般, 微信小程序员用的多
+		
+	q.flex布局的一些概念
+	
+		(1)flex容器
+			如果几个div实现flex,放到一个大的div,这个div就是容器
+		
+		(2)flex项目
+			如果几个div实现flex, 这几个小的div就是flex的项目(item)
+		
+		(3)主轴
+			主轴方向默认是: 横轴,从左到右, 左侧是start,右侧是end
+		
+		
+		(4)交叉轴
+			和主轴垂直的就是交叉轴, 默认从上到下,上侧是start,最下侧是end
+		
+		(5)主轴上大小和交叉轴上大小
+			一个项目在主轴和交叉轴有size
+			
+2.flex容器的6个属性
+
+	flex-direction 设置主轴的方向
+		row 			默认值,从左到右
+		row-reverse 	从右到左
+		column 			从上到下
+		column-reverse  从下到上
+	
+	flex-wrap 		主轴上是否换行
+		nowrap 			默认值-不换行
+		wrap 			换行
+		wrap-reverse 	反向换行
+	
+	flex-flow 		方向和换行的组合
+		flex-flow: column wrap;
+
+	
+	justify-content 设置主轴上对齐方式
+		flex-start     默认,从主轴开始到结束
+		flex-end       从主轴结束到开始
+		center 			主轴居中
+		sppace-between   分比例均分,两边没间距
+		sppace-around   分比例均分,两边有间距
+	
+	align-items 	设置交叉轴上对齐方式
+		flex-start 		交叉轴开始对齐
+		flex-end 		交叉轴结束对齐
+		center 			居中对齐
+		stretch 		拉伸对齐对齐
+		baseline 		基线对齐对齐
+		
+	align-content 	设置有多个主轴的对齐方式
+		stretch 		默认对齐方式, 拉伸
+		flex-start     默认,从主轴开始到结束
+		flex-end       从主轴结束到开始
+		center 			主轴居中
+		sppace-between   分比例均分,两边没间距
+		sppace-around   分比例均分,两边有间距
+	
+	
+	
+3.flex项目的6个属性
+
+	align-self 		每个项目在交叉轴对齐方式
+		stretch 		默认对齐方式, 拉伸
+		flex-start     默认,从主轴开始到结束
+		flex-end       从主轴结束到开始
+		center 			主轴居中
+	
+	order 			主轴上顺序序号
+		默认是0,			值越小,越往前,越大越往后
+	
+	flex-grow 		项目的增长系数
+	
+		设置数字
+	
+	flex-shrink 	项目缩小系数
+	
+		设置数字
+	
+	flex-basic 		项目在主轴上的大小
+	
+		设置主轴大小, 覆盖width属性
+	
+	flex: 			flex-grow,flex-shrink,flex-basic组合
+		
+		案例: flex: 1 1 50px;
+
+		
+	
+
+
+4.Flex布局常见布局
+
+5.Flex布局实战: 森巢网	
+	
+	
+</pre>
+		
+		
+		
+	</body>
+</html>

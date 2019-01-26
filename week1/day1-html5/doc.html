@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+<h2>html5新标签,input新类型和新属性,html5shiv</h2>
+
+<pre>
+目录
+	1.html5新标签
+	
+	2.input新类型
+	
+	3.input新属性
+	
+	4.html5shiv
+	
+课程内容
+	
+1.html5新标签
+
+	q.有哪些常用新标签?
+		header 头部
+		footer 底部
+		section 段
+		nav 导航
+		aside 边栏
+		article 文章/内容
+		
+	q.作用?
+		为了程序员: 看别人代码
+		
+		为了搜索引擎 
+			meta name="keyword"
+			meata name="description"
+			
+	q.不常用h5标签
+		dialog 对话框
+		detail/summary 折叠
+		
+	q.dialog怎么使用
+	
+		s1: 添加dialog
+		s2: dialog添加显示的内容
+		s3: 用open属性控制打开和关闭
+			有open显示
+			没有open关闭
+			
+	q.details和summary
+	
+		实际应用: 评论
+		实际应用: 菜单
+		
+		s1: 先写details,注意有s
+		s2: 里面加个summary,放文本,图片
+		s3: summary下方是初始隐藏的内容
+			放评论,文本,放多个按钮,多个li
+
+2.input新类型
+
+	q.常用的input的type?
+	
+		text
+		password
+		button
+		submit/reset
+		hide
+		...
+		
+	q.h5引入的新type类型有哪些?
+		颜色 color
+			使用:(1)加上直接显示,通过value设置初始值
+				(2)通过onchange获取变化
+				
+				注意: 使用不能用颜色名,用十六进制颜色
+		
+		时间和日期
+			month
+			week
+			date
+			datetime
+			datetime-local
+			time
+			
+			注意1: 初始值的格式怎么记?
+				不记
+			注意2: 时间和日期用datetime-local
+			
+		数字
+			number 
+			实例: 购买商品 
+			
+		搜索
+			search
+			特点: 自带清除按钮,有内容显示清除
+			
+		url
+			url 带验证,有内容如果提交,有提示
+			
+		email
+			url 带验证,有内容如果提交,有提示
+			
+		datalist 实现输入提示
+
+3.input新属性
+
+	q.有哪些属性
+		刚用的: min max step
+		
+		required 必需的
+			特点: 加上必须输入,不输入提示
+		
+		multiple 多选
+			特点: 加上以前单选,可以多选,shift
+		
+		autofocus 自动聚焦
+			特点: 页面加载自动把光标放在输入框
+		
+		pattern 正则表达式检查内容
+			特点: 根据pattern对应格式检查数据
+
+4.html5shiv
+
+	q.IE对h5新标签支持?
+		chrome和firefox对h
+		
+	q.如何使用html5shiv让低版本ie支持新标签
+
+整合案例
+	功能: 实现一个登陆界面
+	要求: 1.使用新的标签
+		2.使用新的类型
+		3.加入内容的检查
+		4.加入ie的兼容
+	
+</pre>
+		
+	</body>
+</html>

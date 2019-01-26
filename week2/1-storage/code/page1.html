@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="test" id="test" value="" />
+		<button onclick="dealClick()">
+			设置值
+		</button>
+		<br />
+		<a href="page2.html">page2</a>
+		<script type="text/javascript">
+			var test=document.querySelector("#test");
+			var num = 0;
+			function dealClick () {
+				window.localStorage.setItem(test.value,num);
+//				localStorage.num = num
+				
+				num++;
+			}
+			
+		</script>
+		
+	</body>
+</html>

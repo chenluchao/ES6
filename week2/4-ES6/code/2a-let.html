@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			
+			
+			
+			
+			//规律:
+			//	定义后任意位置都能使用(包括函数内)
+			var g_a = 10
+			console.log("g_a = "+g_a)
+			console.log("g_a = "+g_a)
+			
+			function f1(){
+				console.log("g_a = "+g_a)
+				
+				if(1){
+					var l_a = 20
+					
+					//规律: 函数内变量, 
+					//定义后,一直到函数结尾都能用
+					console.log("l_a = "+l_a)
+				}
+				
+				console.log("OUT: l_a = "+l_a)
+				
+				
+			}
+			
+			//函数一旦定义, 在js任意地方都能执行
+			f1()
+			
+			function f2(){
+				
+				if(1){
+					let sum = 0;
+					for(var i=0;i<10;i++){
+						sum+=i;
+					}
+					console.log("sum="+sum)
+				}
+				if(1){
+	
+					console.log("sum="+sum)
+				}
+				
+				
+			}
+			f2()
+			
+			//console.log("l_a = "+l_a)
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,6 @@
+<!--pages/mine/mine.wxml-->
+<text>pages/mine/mine.wxml</text>
+
+<view>
+	<button bindtap="dealLogout">退出</button>
+</view>

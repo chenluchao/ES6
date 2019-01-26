@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var dog = {
+				"type":"haspy",
+				"age":6,
+				"sex":"boy"
+			}
+			
+			let proxyDog = new Proxy(dog,{
+				get(target,key,reciver){
+					return target[key];
+				},
+				set(target,key,value,receiver){
+					//console.log("set")
+					if(value > 0){
+						target[key] = value
+					}
+				}
+			});
+			
+			var age = proxyDog.age;
+			console.log("age ="+age);
+			
+			proxyDog.age = 10
+			console.log("age="+age);
+			
+			proxyDog.age = -10
+			console.log("age="+age);
+			
+		</script>
+	</body>
+</html>

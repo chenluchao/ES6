@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			//创建
+			//	存储的数据, 都是唯一的
+			let set = new Set(['100','100','aaa',100]);
+			
+			//设置值
+			set.add('bbb')
+			set.add('aaa')
+
+			
+			
+			//删除
+			set.delete(100)
+			
+			//清空
+			//set.clear()
+			
+			//遍历
+			for(var [k,v] of set.entries()){
+				console.log("v = "+v)
+			}
+			
+			
+			console.log(set)
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

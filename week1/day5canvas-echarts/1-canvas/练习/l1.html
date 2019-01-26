@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			.box{
+				width: 520px;
+				height: 520px;
+				margin: 0 auto;
+				border-radius: 50%;
+				overflow: hidden;
+				/*animation: ani linear infinite 5s;*/
+			}
+			canvas{
+				/*border: 1px solid black;*/
+			}
+			@keyframes ani{
+				from{
+					transform: rotate(0deg);
+				}to{
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			<canvas id="myCanvas" width="520" height="520"></canvas>
+		</div>
+		<script type="text/javascript">
+			var myCanvas=document.getElementById("myCanvas");
+			var a = myCanvas.getContext("2d");
+			
+			a.beginPath();
+			a.strokeStyle="black";
+			a.fillStyle="#000000";
+			a.arc(260,260,200,Math.PI/180*-90,Math.PI/180*90);
+			a.stroke();
+			a.fill();
+			
+			a.beginPath();
+			a.strokeStyle="black";
+			a.fillStyle="#FFFFFF";
+			a.arc(260,260,200,Math.PI/180*90,Math.PI/180*270);
+			a.stroke();
+			a.fill();
+			
+			a.beginPath();
+			a.fillStyle="black";
+			a.moveTo(360,160);
+			a.arc(260,160,100,0,Math.PI*2);
+			a.fill();
+			
+			a.beginPath();
+			a.fillStyle="white";
+			a.moveTo(360,460);
+			a.arc(260,360,100,0,Math.PI*2);
+			a.fill();
+			
+			a.beginPath();
+			a.fillStyle="white";
+			a.moveTo(280,110);
+			a.arc(260,160,40,0,Math.PI*2);
+			a.fill();
+			
+			a.beginPath();
+			a.fillStyle="black";
+			a.moveTo(280,110);
+			a.arc(260,350,40,0,Math.PI*2);
+			a.fill();
+		</script>
+	</body>
+</html>

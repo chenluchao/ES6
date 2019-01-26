@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			ul {
+				list-style: none;
+			}
+			
+			.big {
+				margin: 50px auto;
+				width: 300px;
+			}
+			
+			.box {
+				width: 300px;
+				border: 1px solid #f90;
+				font-size: 12px;
+			}
+			
+			.bao {
+				margin-top: 20px;
+			}
+			
+			.box ul li span {
+				display: inline-block;
+				width: 24%;
+				text-align: center;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="big">
+			<div class="box">
+				<ul>
+					<li>
+						<span>序号</span>
+						<span>时间</span>
+						<span>内容</span>
+						<span>操作</span>
+					</li>
+				</ul>
+				<ul class="show">
+				</ul>
+			</div>
+			<div class="bao">
+				<p><span>时间:</span><input type="text" name="" id="time" value="" /></p>
+				<p><span>内容:</span><input type="text" name="" id="con" value="" /></p>
+				<button onclick="dealAdd()">添加</button>
+			</div>
+		</div>
+
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+			var time = document.querySelector("#time");
+			var con = document.querySelector("#con");
+			var ul = document.querySelector(".box ul:nth-of-type(2)");
+			show();
+
+			function show() {
+				$(".box ul.show").html("");
+				if(localStorage.all != undefined) {
+					var ShowTag = localStorage.all;
+					var ShowTagJson = JSON.parse(ShowTag);
+					for(var i = 1; i <= ShowTagJson.length; i++) {
+						ul.innerHTML += "<li><span>" + i + "</span><span>" + ShowTagJson[i - 1].time + "</span><span>" + ShowTagJson[i - 1].con + "</span><span class='remove'>删除</span></li>"
+					}
+				}
+				$(".box ul li .remove").click(function() {
+					var Remove = localStorage.all;
+					var RemoveJson = JSON.parse(Remove);
+					RemoveJson.splice($(this).parent().index(), 1);
+					console.log($(this).parent().index());
+					localStorage["all"] = JSON.stringify(RemoveJson);
+					show();
+				});
+			}
+
+			function dealAdd() {
+
+				if(time.value && con.value) {
+					var AddAll = localStorage.all;
+					var AddAllJson = JSON.parse(AddAll);
+					if(AddAll != undefined) {
+						var i = AddAllJson.length + 1;
+					} else {
+						var i = 1;
+					}
+					var dict = {
+						id: i,
+						time: time.value,
+						con: con.value
+					}
+					AddAllJson.push(dict);
+					//console.log(AddAllJson);
+					localStorage.all = JSON.stringify(AddAllJson);
+					//console.log(localStorage.all);
+				}
+				show()
+			}
+
+			$(".box ul li .remove").click(function() {
+				var Remove = localStorage.all;
+				var RemoveJson = JSON.parse(Remove);
+				RemoveJson.splice($(this).parent().index(), 1);
+				console.log($(this).parent().index());
+				localStorage["all"] = JSON.stringify(RemoveJson);
+				show();
+			});
+		</script>
+	</body>
+
+</html>

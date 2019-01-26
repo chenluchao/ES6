@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			canvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var a = myCanvas.getContext("2d");
+			
+			var d = Math.PI/180;
+			
+			var list=[
+				{
+					x:200,
+					y:200,
+					r:180,
+					start:0,
+					end:190,
+					color:'orange',
+					title:'IE'
+				},{
+					x:200-10,y:200-10,r:180,start:190,end:280,
+					color:'blue',
+					title:'Firefox',
+				},{
+					x:200,y:200,r:180,start:280,end:310,
+					color:'green',
+					title:'Chrome',
+				},{
+					x:200,y:200,r:180,start:310,end:330,
+					color:'yellow',
+					title:'Opera',
+				},{
+					x:200,y:200,r:180,start:330,end:350,
+					color:'red',
+					title:'Safari',
+				},{
+					x:200,y:200,r:180,start:350,end:360,
+					color:'purple',
+					title:'Other',
+				}
+			]
+			
+			for(var index in list){
+				var dict = list[index];
+				a.beginPath();
+				a.moveTo(dict.x,dict.y);
+				a.arc(dict.x,dict.y,dict.r,dict.start*d,dict.end*d);
+				a.fillStyle=dict.color;
+				a.fill();
+			}
+			
+			a.beginPath();
+			a.rect(10,10,100,140);
+			a.fillStyle="white";
+			a.stroke();
+			a.fill();
+			
+			for(var index in list){
+				var dict = list[index];
+				a.fillStyle=dict.color;
+				a.fillRect(20,20+(index)*20,40,15);
+				a.fillStyle="black"
+				a.fillText(dict.title,65,20+(index*20)+10)
+			}
+		</script>
+	</body>
+</html>

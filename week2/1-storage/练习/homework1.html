@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="box">
+			<p>
+				<span>用户名</span>
+				<input type="text" name="user" id="user" placeholder="请输入用户名" /></p>
+			<p>
+				<span>密码</span>
+				<input type="password" name="pass" id="pass" placeholder="请输入密码" />
+			</p>
+			<button onclick="dealLogin()">登录</button>
+		</div>
+		<script type="text/javascript">
+			var user = document.querySelector("#user");
+			var pass = document.querySelector("#pass");
+			
+			function dealLogin(){
+				if(window.localStorage){
+					localStorage.user = user.value;
+					localStorage.pass = pass.value;
+				}
+			}
+			show();
+			function show(){
+				if(localStorage.user){
+					user.value=localStorage.user;
+				}
+				if(localStorage.pass){
+					pass.value=localStorage.pass;
+				}
+			}
+		</script>
+	</body>
+</html>

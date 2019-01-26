@@ -1,0 +1,7 @@
+<!--pages/movie/movie.wxml-->
+<navigator url="/pages/cinemaMovie/cinemaMovie">电影1</navigator>
+<navigator url="/pages/cinemaMovie/cinemaMovie">电影2</navigator>
+<navigator url="/pages/cinemaMovie/cinemaMovie">电影3</navigator>
+
+<navigator url="/pages/cityList/cityList">跳转到城市选择</navigator>
+<navigator url="/pages/search/search">跳转到搜索</navigator>

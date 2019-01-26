@@ -1,0 +1,27 @@
+<!--page/hello_test/hello.wxml-->
+<text>page/hello_test/hello.wxml</text>
+<view>
+  num={{num}}
+</view>
+<view>
+  <button bindtap='dealAdd'>+1</button>
+</view>
+<!-- 循环渲染 -->
+<view wx:for="{{list}}" wx:key="{{index}}">
+  {{index}} -> {{item}}
+</view>
+<view wx:for="{{dog}}" wx:key="{{index}}">
+  {{index}} -> {{item}}
+</view>
+
+<!-- 条件渲染 -->
+<view wx:if="{{show}}">
+  显示隐藏
+</view>
+<view>
+  num1:
+  <input value='{{num1}}' bindinput='dealchange1'></input>
+  num2:
+  <input value='{{num2}}' bindinput='dealchange2'></input>
+</view>
+<button bindtap='dealcalc'>两数之和</button>

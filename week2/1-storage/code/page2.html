@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<div class="box">
+			
+		</div>
+		
+		<script type="text/javascript">
+			
+			window.addEventListener("storage",function(event){
+				console.log("change")
+				//console.log(event)
+				console.log("key="+event.key)
+				console.log("new="+event.newValue)
+				console.log("old="+event.oldValue)
+			})
+			
+		</script>
+		
+	</body>
+</html>

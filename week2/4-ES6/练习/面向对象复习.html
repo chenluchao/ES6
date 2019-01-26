@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var Person = function(name,age,sex){
+				this.name = name;
+				this.age = age;
+				this.sex = sex;
+				
+				//方法
+				this.say = function(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex)
+				}
+			}
+			
+			//创建对象
+			var zs = new Person("zs",18,"boy");
+			zs.say();
+			
+			//继承
+			var Student = function(name,age,sex,score){
+				Person.call(this,name,age,sex);
+				this.score = score;
+				
+				this.study = function(){
+					console.log("hello");
+				}
+				this.say = function(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex+" score="+this.score)
+				}
+			}
+			var lisi = new Student('lisi',24,'girl',99)
+			lisi.say();
+			lisi.study();
+			
+			
+		</script>
+	</body>
+</html>

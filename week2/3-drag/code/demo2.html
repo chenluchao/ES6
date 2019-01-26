@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style>
+			.box{
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: 1px solid black;
+			}
+			.img{
+				width: 100px;
+				height: 100px;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="box" ondrop="drop(event)" ondragover="dragover(event)">
+			
+		</div>
+		<hr>
+		<div class="box" ondrop="drop(event)" ondragover="dragover(event)">
+			<img id="t" draggable="true" ondragstart="dragstart(event)" class="img" src="100x100.png" alt="">
+		</div>
+		
+		<script type="text/javascript">
+			
+			function dragstart (event) {
+				var id = event.target.id
+				console.log("id = "+id)
+				event.dataTransfer.setData("id",id)
+			}
+			
+			function dragover (event) {
+				event.preventDefault()
+			}
+			function drop (event) {
+				var id = event.dataTransfer.getData("id")
+				console.log("要移动id="+id)
+				
+				var img = document.getElementById(id)
+				
+				//要放图片div
+				var target = event.target
+				target.appendChild(img)
+			}
+		</script>
+		
+		
+	</body>
+</html>

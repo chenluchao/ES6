@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<style type="text/css">
+			body {
+				margin: 0;
+				padding: 0;
+			}
+
+			ul,
+			li {
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.navbar {
+				width: 100%;
+				height: 44px;
+				background-color: #e93030;
+
+				font-size: 24px;
+				text-align: center;
+				line-height: 44px;
+			}
+
+			.wrapper {
+				width: 100%;
+				position: absolute;
+				top: 44px;
+				bottom: 49px;
+
+				/* 核心 */
+				overflow: hidden;
+			}
+
+			.wrapper li {
+				width: 100%;
+				height: 80px;
+				padding: 5px;
+				line-height: 70px;
+				border-bottom: 1px solid #cacaca;
+			}
+
+			.tabbar {
+				width: 100%;
+				height: 49px;
+				background-color: #e93030;
+				position: absolute;
+				bottom: 0;
+
+				font-size: 24px;
+				text-align: center;
+				line-height: 44px;
+			}
+		</style>
+
+
+	</head>
+	<body>
+
+		<div class="navbar">
+			navbar
+		</div>
+
+		<div class="wrapper">
+			<ul>
+				<li>1今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>2今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>3今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>4今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>5今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>今天我以为是我们的开始, 却最终是我们的结束</li>
+				<li>今天我以为是我们的开始, 却最终是我们的结束</li>
+			</ul>
+		</div>
+
+		<div class="tabbar">
+			tabbar
+		</div>
+
+		<script src="iscroll/iscroll.js" type="text/javascript" charset="utf-8"></script>
+
+		<script type="text/javascript">
+			//参数1: 滚动的容器
+			//参数2: 选项配置
+			var myScroll = new IScroll(".wrapper", {
+				scrollbars: true
+			})
+			
+			var order = 0;
+			
+			var ul = document.querySelector(".wrapper ul")
+
+			//下载某页数据
+			var page = 1
+			function loadData(page){
+				
+				//滚动到最底部
+				//ajax请求最新的数据, 数据附加在最后
+				setTimeout(function() {
+					
+					if(page == 1){
+						ul.innerHTML = ""
+					}
+
+					var data = [
+						Math.random() * 100,
+						Math.random() * 100,
+						Math.random() * 100,
+						Math.random() * 100,
+						Math.random() * 100,
+						Math.random() * 100,
+					]
+					for (var index in data) {
+
+						order++;
+
+						var item = data[index]
+						ul.innerHTML += "<li>page="+page+" order=" + order + "  " + item + "</li>"
+					}
+
+					myScroll.refresh()
+
+				}, 3000)
+			}
+
+			//下拉加载更多演示
+			
+			myScroll.on("scrollEnd", function() {
+
+				console.log("scrollEnd");
+
+				//console.log("this.y = "+this.y)
+				//console.log("this.maxScrollY = "+this.maxScrollY)
+
+				if (this.y - 5 < this.maxScrollY) {
+
+					console.log("到底部了,上拉加载更多")
+
+					page++;
+					loadData(page)
+
+				}
+				if (this.y >= 0 && this.y < 5) {
+					console.log("到顶部了, 下拉刷新")
+					
+					page=1;
+					loadData(page)
+				}
+
+
+
+			})
+		</script>
+
+
+
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<!-- Step1: 导入css文件 -->
+		<link rel="stylesheet" type="text/css" href="swiper/swiper.min.css"/>
+		
+		<style type="text/css">
+			
+			html{
+				height: 100%;
+			}
+			
+			body{
+				margin: 0;
+				height: 100%;
+			}
+			
+			.swiper-container{
+				width: 100%;
+				height: 100%;
+			}
+			
+			.swiper-container img{
+				width: 100%;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<!-- Step2: 实现对应的结构 -->
+		
+		<div class="swiper-container">
+			
+			<div class="swiper-wrapper">
+				
+				<div class="swiper-slide">
+					<img src="img/zhiling1.jpg" >
+				</div>
+				<div class="swiper-slide">
+					<img src="img/zhiling2.jpg" >
+				</div>
+				<div class="swiper-slide">
+					<img src="img/zhiling3.jpg" >
+				</div>
+				<div class="swiper-slide">
+					<img src="img/zhiling4.jpg" >
+				</div>
+
+			</div>
+			
+			<div class="swiper-pagination">
+				
+			</div>
+			
+		</div>
+		
+		<!-- Step3: 导入js -->
+		<script src="swiper/swiper.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!-- Step4: 初始化轮播 -->
+		<script type="text/javascript">
+			
+			//初始化
+			//	参数1: 轮播结构的选择器
+			//	参数2: 对象,传入各个选项
+			var mySwiper = new Swiper(".swiper-container",{
+				
+				//是否循环滚动
+				loop:true,
+				
+				//设置自动滚动时间间隔, 2000ms
+				autoplay: 2000,
+				
+				//设置滚动指示器- 选择器
+				pagination:".swiper-pagination",
+				
+				//设置能否点击滚动指示器
+				paginationClickable:true,
+				autoplayDisableOnInteraction: true,
+				
+				direction: "vertical"
+				
+			})
+			
+		</script>
+		
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<script src="js/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#main {
+				width: 600px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="main"></div>
+		
+		<button onclick="dealAdd()">添加数据</button>
+
+		<script type="text/javascript">
+			var tag = document.getElementById("main")
+			var myChart = echarts.init(tag)
+
+			var option = {
+				xAxis: {
+					type: 'category',
+					data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					data: [120, 200, 150, 80, 70, 110, 130],
+					type: 'bar'
+				}]
+			};
+
+			myChart.setOption(option)
+		
+			var index = 8
+			function dealAdd () {
+				option.xAxis.data.push("周"+index++)
+				
+				var num = Math.random()*200
+				option.series[0].data.push(num)
+				
+				myChart.setOption(option)
+			}
+			
+			myChart.on("click",function(params){
+				console.log(params)
+				
+				console.log("name = "+params.name)
+				console.log("value = "+params.value)
+			
+				alert("您选择了"+params.name+" 值是"+params.value)
+			})
+			
+		</script>
+
+	</body>
+</html>

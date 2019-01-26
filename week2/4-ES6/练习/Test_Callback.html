@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			//			let promise = new Promise(function(resolve, reject) {
+			//				resolve();
+			//				console.log("Promise");
+			//			});
+			//			promise.then(function() {
+			//				console.log("Resolved."); 
+			//			});
+			//			console.log("Hi!");
+			
+			
+			function f1(call){
+				call();
+			}
+			f1(function(){
+				console.log("执行回调");
+			})
+			console.log("执行顺序");
+		</script>
+	</body>
+
+</html>

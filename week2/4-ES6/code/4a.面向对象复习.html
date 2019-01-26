@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//Person, Student
+			
+			//创建类
+			var Person = function(name,age,sex){
+				
+				//添加3个属性
+				this.name = name
+				this.age = age
+				this.sex = sex
+				
+				//方法
+				this.say = function(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex)
+				}
+			}
+			
+			//创建对象
+			var zs = new Person('zs',15,'boy')
+			//使用属性
+			console.log("name = "+zs.name)
+			//修改属性
+			zs.name = "zhangsan"
+			console.log("name = "+zs.name)
+			//使用方法
+			zs.say()
+			
+			
+			//继承-方式1
+			var Student = function(name,age,sex,score){
+				
+				//从Person复制了3个属性和1个方法
+				Person.call(this,name,age,sex);
+				
+				//自己又加了属性
+				this.score = score;
+				
+				this.study = function(){
+					console.log("学习使我快乐,学习使我开心,每天不学习,头就疼")
+				}
+				
+				this.say = function(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex+" score="+this.score)
+				}
+				
+			}
+			
+			var lisi = new Student('lisi',24,'girl',89)
+			lisi.say()
+			lisi.study()
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html

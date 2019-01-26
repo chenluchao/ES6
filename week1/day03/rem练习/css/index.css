@@ -1,0 +1,146 @@
+section{
+    background: #eef3ef;
+    overflow: hidden;
+}
+.banner{
+    overflow: hidden;
+}
+.swiper-container{
+    width: 3.62rem;
+    height: 1.50rem;
+    margin: 0 0.05rem 0.08rem 0.05rem;
+}
+.swiper-slide img{
+    width: 3.62rem;
+    height: 1.50rem;
+}
+.swiper-container .swiper-pagination span{
+    background: #6ecffa;
+}
+.nav{
+    overflow: hidden;
+    margin-bottom: 0.07rem;
+}
+.nav ul{
+    overflow: hidden;
+    padding-bottom:0.24rem;
+    background:#fff;
+}
+.nav img{
+    width: 0.50rem;
+    height: 0.50rem;
+    display: block;
+}
+.nav ul li{
+    float: left;
+    margin-right: 0.44rem;
+    margin-top: 0.17rem;
+    font-size: 0.12rem;
+    color: #615f6c;
+    text-align: center;
+}
+.nav ul li:first-child{
+    margin-left: 0.19rem;
+}
+.nav ul li:nth-child(4){
+    margin-right: 0.19rem;
+}
+.nav ul li:nth-child(5){
+    margin-left: 0.19rem;
+}
+.nav ul li:nth-child(8){
+    margin-right: 0.19rem;
+}
+.nav ul li dl dd{
+    margin-top: 0.02rem;
+}
+.tab{
+    background: #fff;
+}
+.title{
+    margin: 0 0.12rem;
+}
+.title ul{
+    overflow: hidden;
+}
+.title ul li{
+    float: left;
+    width: 33.3%;
+    text-align: center;
+    height: 0.43rem;
+    line-height: 0.43rem;
+    border-bottom: 1px solid #d1d1d1;
+}
+.title ul li a{
+    color: #23b6a3;
+    font-size: 0.12rem;
+    display: block;
+    height: 0.35rem;
+    margin: 0.04rem 0;
+    border-right: 1px solid #d1d1d1;
+}
+.title ul li:last-child a{
+    border: none;
+}
+.title ul li a.active{
+    color: #ff7f00;
+}
+.content{
+    margin: 0 0.12rem;
+    overflow: hidden;
+}
+.content ul{
+    display: none;
+}
+.content ul.active{
+    display: block;
+}
+.content ul li{
+    overflow: hidden;
+    padding: 0.08rem 0 0.07rem; 
+    border-bottom: 1px dashed #f2f2f2;
+}
+.content ul li:first-child{
+    padding-top: 0.19rem;
+}
+.content_image{
+    border: 1px solid #f8f8f8;
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    float: left;
+}
+.content_image img{
+    width: 1rem;
+    height: 1rem;
+}
+.content ul li dl{
+    float: left;
+    padding: 0.09rem 0 0.04rem 0.13rem;
+}
+.content ul li dl dt{
+    font-size: 0.14rem;
+    line-height: 0.28rem;
+    color: #2d3025;
+}
+.content ul li dl dd:nth-child(2){
+    font-size: 0.14rem;
+    line-height: 0.28rem;
+    color: #867a7a;
+    text-decoration: line-through;
+}
+.content ul li dl dd:nth-child(3){
+    font-size: 0.12rem;
+    line-height: 0.28rem;
+    color: #61ab52;
+    font-weight: bold;
+}
+.content ul li p{
+    width: 0.22rem;
+    height: 0.23rem;
+    float: right;
+    background: url(../img/cart.jpg) no-repeat;
+    margin-right: 0.10rem;
+    margin-top: 0.40rem;
+    background-size: 100% 100%;
+}

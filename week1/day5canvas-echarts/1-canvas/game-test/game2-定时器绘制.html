@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+
+
+
+			
+
+			var loadImages = function(list,callback) {
+				var count = 0;
+				for (var key in list){
+					count++
+				}
+
+				var dict = {}
+				var loadCount = 0;
+				for (var key in list) {		
+					dict[key] = new Image()
+					dict[key].onload = function() {
+						loadCount++;
+						if (loadCount >= count) {
+							callback(dict)
+						}
+					}
+					dict[key].src = list[key]
+				}
+			}
+			
+
+
+			
+			//设置加载的资源
+			var res =  {
+				"back2": "img/back2.jpg",
+				"player": "img/player.png",
+			}
+			for(var i=1; i<=18; i++){
+				res["dove"+i] = "img/bird/DOVE "+i+".png"
+			}
+			
+			//全局定义变量
+			var dt = 1/60;
+			var count = 0;
+			var gameWidth = 400
+			var gameHeight = 400
+			
+			var g = 3
+			
+			//可用
+			//ctx,dt
+			var sprits = []
+			
+			var images = {}
+			
+			loadImages(res,function(images){
+				
+				init(images)
+				
+				images = images;
+				
+				setInterval(function () {
+					ctx.clearRect(0,0,gameWidth,gameHeight)
+
+					for(var s of sprits){
+						// console.log(s.imageName)
+						ctx.drawImage(images[s.imageName],s.x-s.w/2,s.y-s.h/2,s.w,s.h)
+						if(s.animate){
+							s.animate(count,dt)
+						}
+						if(s.isGravity){
+							
+							s.addSpeed += g * dt 
+							
+							
+							//console.log("ySpeed = "+s.ySeeed)
+						}
+						
+ 						s.ySeeed += s.addSpeed;
+						s.x += s.xSpeed * dt
+						s.y += s.ySeeed * dt
+						
+						
+						
+					}
+					
+					count++
+					
+				},dt*1000)
+				
+			})
+			
+			///////////真正代码/////////////
+
+			var Back = function(){
+				var obj = {
+					imageName:"back2",
+					x:200,
+					y:200,
+					w:400,
+					h:400,
+					xSpeed:0,
+					ySeeed:0,
+					isMove:false,
+					addSpeed:0,
+					isGravity:false
+				}
+				return obj
+					
+			}
+			var Bird = function(){
+				var obj = {
+					imageName:"dove1",
+					x:200,
+					y:200,
+					w:120,
+					h:100,
+					xSpeed:0,
+					ySeeed:0,
+					isMove:false,
+					addSpeed:0,
+					isGravity:true
+				}
+				obj.animate = function(count,dt){
+					this.imageName = "dove"+(count%18+1)
+				}
+				return obj
+					
+			}
+			var back = new Back()
+			var b1 = new Bird()
+			
+			var b2 = new Bird()
+			b2.x = 50
+			b2.y = 50
+			
+			function init(images){
+		
+				sprits.push(back)
+				sprits.push(b1)
+				sprits.push(b2)
+			}
+			
+			myCanvas.addEventListener("click",function(){
+				console.log("click")
+				b1.ySeeed = 0
+				b1.addSpeed = -3
+				
+				b2.ySeeed = 0
+				b2.addSpeed = -3
+			})
+			
+
+			
+		</script>
+
+	</body>
+</html>

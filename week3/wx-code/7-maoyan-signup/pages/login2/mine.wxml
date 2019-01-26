@@ -1,0 +1,43 @@
+<!--pages/mine/mine.wxml-->
+<view class='mine-top'>
+  <view class='mt-left {{isHid==1?"mt-on":""}}' bindtap='dealChange' data-index="1">
+    美团账户登录
+  </view>
+  <view class='mt-right {{isHid==2?"mt-on":""}}'bindtap='dealChange'  data-index="2">
+    手机验证登录
+  </view>
+</view>
+<view class='mine-box'>
+    <view class='{{isHide==1?"":"mb-on"}}'>
+      <view class='mb-one'>
+        <input value="{{mobile}}" bindinput="dealInput" data-key="mobile" placeholder='账户名/手机号/Email'></input>
+      </view>
+      <view class='mb-one'>
+        <input value="{{password}}" password="true" bindinput="dealInput" data-key="password" placeholder='请输入您的密码'></input>
+      </view>
+      <view class='mbo-btn'>
+        <button bindtap="dealLogin">登录</button>
+      </view>
+    </view>
+    <view class='{{isHide==2?"":"mb-on"}}'>
+       <view class='mb-two'>
+        <input value="{{mobileTwo}}" bindinput="dealInput" data-key="mobileTwo" placeholder='请输入手机号'></input>
+        <button bindtap="sendSms" class='mbt-btn {{isMobileTwoValidate?"send-btn-validate":""}}'>获取验证码</button>
+      </view>
+      <view class='mb-two'>
+        <input bindinput="dealInput" data-key="code" placeholder='请输入短信验证码' class='noteInput'></input>
+      </view>
+      <view class='mt-btn'>
+        <button bindtap="dealMobileLogin" class='{{isMobileTwoValidate?"btn-validate":""}}'>登录</button>
+      </view>
+    </view>
+</view>
+<view class='nav-warpe'>
+
+<navigator url="/pages/signup/signup">立即注册</navigator>
+<navigator url="/pages/resetreq/resetreq">找回密码</navigator>
+</view>
+<view class='capy'>
+© 猫眼电影 客服电话：<text>400-670-5335</text>
+</view>
+

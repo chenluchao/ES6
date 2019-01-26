@@ -1,0 +1,15 @@
+{
+	"pages": [
+    "page/calc/calc",
+    "page/hello_test/hello",
+    "pages/hello/hello",
+    "pages/calc/calc",
+    "pages/index/index"
+  ],
+	"window": {
+		"backgroundTextStyle": "light",
+		"navigationBarBackgroundColor": "#fff",
+		"navigationBarTitleText": "WeChat",
+		"navigationBarTextStyle": "black"
+	}
+}

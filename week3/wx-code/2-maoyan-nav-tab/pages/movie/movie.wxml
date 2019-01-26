@@ -1,0 +1,7 @@
+<!--pages/movie/movie.wxml-->
+<text>pages/movie/movie.wxml</text>
+
+
+<navigator url="/pages/movieDetail/movieDetail">电影1</navigator>
+<navigator url="/pages/movieDetail/movieDetail">电影2</navigator>
+<navigator url="/pages/movieDetail/movieDetail">电影3</navigator>

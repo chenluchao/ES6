@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/echarts.js" charset="utf-8"></script>
+		<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=o9s3Y2mWsHPgMWR0qMwOCT2SMg0otUR6"></script>
+		<script type="text/javascript" src="js/bmap.js"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.main {
+				width: 600px;
+				height: 400px;
+				border: 1px solid #f90;
+				margin: 50px auto;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="main"></div>
+
+		<script type="text/javascript">
+			var tag = document.getElementsByClassName('main')[0];
+			var myChart = echarts.init(tag);
+
+			myChart.title = '热力图与百度地图扩展';
+
+			$.get('json/hangzhou-tracks.json', function(data) {
+
+				var points = [].concat.apply([], data.map(function(track) {
+					return track.map(function(seg) {
+						return seg.coord.concat([1]);
+					});
+				}));
+				myChart.setOption(option = {
+					animation: false,
+					bmap: {
+						center: [120.13066322374, 30.240018034923],
+						zoom: 14,
+						roam: true
+					},
+					visualMap: {
+						show: false,
+						top: 'top',
+						min: 0,
+						max: 5,
+						seriesIndex: 0,
+						calculable: true,
+						inRange: {
+							color: ['blue', 'blue', 'green', 'yellow', 'red']
+						}
+					},
+					series: [{
+						type: 'heatmap',
+						coordinateSystem: 'bmap',
+						data: points,
+						pointSize: 5,
+						blurSize: 6
+					}]
+				});
+				if(!myChart.inNode) {
+					// 添加百度地图插件
+					var bmap = myChart.getModel().getComponent('bmap').getBMap();
+					bmap.addControl(new BMap.MapTypeControl());
+				}
+			});
+
+			//myChart.setOption(option);
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title></title>
+	</head>
+
+	<body>
+		<h2>微信小程序</h2>
+
+		<pre>
+
+目录
+	1.计算器
+		学习:
+			微信开发工具的下载和安装
+			创建项目2
+			创建页面
+			view组件(容器)
+			text组件
+			input输入框
+			button
+			外部js的导入
+		项目
+			实现UI界面
+			实现按钮点击操作
+			实现数据计算
+			
+	2.常用组件
+
+	3.猫眼电影部分界面
+
+	4.自己的项目
+
+
+课程内容
+
+	1.计算器
+		学习:
+			微信开发工具的下载
+				https://developers.weixin.qq.com/miniprogram/dev/devtools/download.html
+			
+			安装微信小程序开发工具
+			
+			打开微信小程序开发工具
+				注意: 需要你的电脑联网, 每次登录需要扫码登录
+
+			创建项目
+
+			工具的必要说明
+				(1)菜单栏
+				(2)工具栏
+				(3)模拟器
+				(4)文件列表
+				(5)编辑区
+				(6)调试区域
+
+			各文件作用
+				project.config.json 项目配置文件
+				app.json            应用配置文件, 重要pages, tabbar
+				app.wxss  			全局样式, 所有界面都用的样式
+				app.js 				程序入口, 主要创建一个App对象
+
+			创建页面
+				q.基础知识:
+					一个界面由 .js .wxss .wxml .json构成
+					wxml放界面结构, 能放的不是html的标签, 只能放组件
+					wxss就是css, 是阉割版的css
+					js是界面的逻辑文件, 界面处理代码都放这儿
+					json页面的配置文件, 覆盖app.json中配置
+
+				q.如何创建界面?
+					方式1: pages中添加这个界面的路径, 工具会自动创建界面
+					注意1: pages第一个页面是首页面
+
+
+			常用组件
+				view组件(容器)
+					view 理解为 div, 就是一个容器, 存放其他组件
+					注意: 会自动换行
+
+				text组件
+					注意: 理解html中span 两个text不会自动换行
+
+				input输入框
+					注意: 默认没有边框
+
+				button
+					注意1: button默认独占一行
+
+					button通过属性bindtap添加点击事件, 事件处理函数定义在js的Page对象中
+
+				image
+					注意: 和html中img相同, 设置地址通过src, 设置相对地址, 也能设置http://网址
+
+			常用wxss(和css本质上相同,但是功能也是阉割版的)
+
+				q.能用哪些功能?
+					选择器:  class,id,element,组合, ::before, ::after
+
+				q.rpx是什么
+					长度单位, 屏幕宽度默认是750rpx, 设置了之后再小屏幕和大屏幕自动缩放
+
+			页面js中常见的功能
+
+				q.html中如何修改数据,如何监控事件
+					如果是js, 先通过函数getElementById, querySelector()获取对象
+						然后修改html,  innerHtml
+						修改属性       setAttribute(), getAttruibute
+						修改class	   e.className, e.classlist
+						修改样式   		e.style
+
+					如果jquery
+						修改HTML      	e.html()
+						修改属性       	e.attr()
+						修改类			e.addClass e.removeClass 
+						修改样式 		e.css()
+
+					小程序
+						以上的都不能用, 为什么因为微信小程序中没有bom,没有dom
+
+				q.如何把js中数据显示到wxml中?
+					简单变量使用{{}}数据绑定
+					数组和对象   //wx:for="花花list花花"
+					实现显示或不显示   使用wx:if="花花isShow花花"
+					
+
+				q.当js中数据改变之后, 显示的内容如何同步改变?
+
+					核心语句:  不要直接改 this.data中值, 使用this.setData({})
+
+
+				q.当输入的值变化之后, 数据如何同步改变?
+					data中定义一个变量, 在input中通过  value=花花num1花花去显示,
+					当输入框的值改了之后, 不会自动同步, 使用bindinput去手工同步
+
+		项目
+			实现UI界面
+				q. 如何渲染多个按钮
+					data中定义数组buttons, 用wx:for显示
+
+				q. 0,几个操作按钮, 用了特殊的的样式
+					数据中每个按钮有个属性 className, 在wxml中使用 class="花花className花花"
+
+			实现按钮点击操作
+
+				q.如何实现多个按钮用一个函数去处理?
+					直接添加一个函数  bindtap="dealClick"
+
+				q.多个按钮用一个函数去处理,如何区分多个按钮?
+					wxml中设置不同的id    id="花花item.title花花">
+					事件处理函数中获取id   var id = e.currentTarget.id
+
+			实现数据计算
+				q. html中直接使用 window.eval(str) 计算表达式值
+
+				q.如何在微信小程序中计算表达式?
+					需要使用第三方js,  现在js中导出函数   module.exports = {}
+					页面的js中铜鼓   var c = require("./calculator.js") 引入使用
+
+
+				q.数据类型的问题
+					计算出来的值后面加 "", 结果转化为了字符串你
+	 
+					
+	2.标签栏/导航栏/navigator
+
+		标签栏
+			q.如何设置标签栏?
+				设置app.json中tabbar属性, 具体设置请查看文档
+
+				注意: tabbar属性必须要加一个list,list中放每个页面的配置
+				
+				注意: 设置图标使用iconPath和selectedIconPath, 图标也可以不设置
+
+				注意: 个数 2~5
+
+
+		导航栏
+
+			q.如何设置导航栏
+				注意: 导航栏在微信小程序默认存在
+					在app.json中的window属性中设置全局的导航栏的样式
+					在每个页面的.json中设置这个页面的导航栏的样式
+
+				注意: 页面中的设置会覆盖app.json中设置
+			
+		navigator组件
+			q.什么是navigator
+				是微信小程序提供的一个组件, 组件类似于html中a标签
+
+
+		练习:
+			//3个列表页
+			电影列表页  	movie
+			影院列表 		cinema
+			我的 mine
+
+			//详情
+			电影购票详情	cinemaMovie
+			电影详情		movieDetail
+			影院详情 cinemaDetail
+
+			//选择和搜索
+			城市选择		cityList
+			搜索			search
+
+			//订单流程
+			选座界面		seatingPlan
+			创建订单		createOrder
+			支付界面		orderPay
+
+			//登录注册
+			登录界面		login
+			注册界面		register
+			找回密码		resetreq
+
+
+			电影列表页=>电影购票详情=>电影详情/影院详情
+			电影列表页=>城市
+			电影列表页=>搜索
+
+			影院列表=>影院详情
+
+			我的/登录=>注册界面/找回密码
+
+	3.标签切换/view的内部滚动
+
+		标签切换
+			q.标签切换用在什么地方?
+				猫眼-首页     正在上映-即将上映
+				猫眼-登录	   密码登录-短信登录
+				猫眼-注册          三个注册步骤
+				猫眼-电影购票页    各个日期切换
+				......
+
+			q.梳理核心
+				<template>
+					正在上映 bindtap data-index="1" / 即将上映 bindtap data-index="2"
+					view wx:if="showIndex==1"
+					view wx:if="showIndex==2"
+				</template>
+				data
+					showIndex:1
+
+		view的内部滚动
+			q.如何竖向滚动
+				view固定宽度和高度
+				view
+					overflow-y: scroll
+
+			q.如何横向滚动
+				view固定宽度和高度
+				view
+					overflow-x: scroll
+					white-space: nowrap
+
+	4.网络请求
+
+		首页
+			Step1: 添加api.js  
+
+				注意:
+					ES6    expoort default {}
+					小程序  module.exports = {}
+
+			Step2: 发起请求
+				文件最上方导入 api.js
+				
+				定义self = this
+				发起请求
+				接收数据
+				self.setData({
+				
+				})
+			Step3: 显示数据
+			
+				wx:for显示数组
+
+
+		搜索页
+			Step1: 跳转到到这个页面	
+				创建这个界面
+				movie给 搜索 按钮添加跳转
+
+			Step2: 处理输入
+				data中定义keyword
+				添加input组件, 添加bindinput, 实时输入的值同步到keyword
+
+			Step3: 发起请求
+				文件最上方导入  api.js
+
+				定义self = this
+				传入两个参数kw和stype
+				接收数据
+					self.setData({
+						movies: moviesList,
+						cinemas: cinemasList
+					})
+			Step4: 显示数据
+
+				第1个wx:for显示movies
+				第2个wx:for显示cinemas
+
+	5. 城市选择
+	
+		(1)界面跳转
+
+		(2)下载数据并且处理
+			Step1: 下载数据
+
+			Step2: 分组数据
+				定义数组  group
+				根据Ascii生成字符 var b = String.fromCharCode(65+i).toString()
+				根据字符获取ascii var index = f.charCodeAt(0) - 97
+
+		(3)显示界面
+			注意: 显示数据用双层for循环, 里面的wx:for指定新的item和index
+
+		(4)实现导航条点击滚动
+			Step1: 实现导航条,添加点击事件
+			Step2: 点击之后自动跳转
+					scroll-view 属性scroll-y, 属性scroll-in-view="id"
+				
+
+		(5)定位
+			Step1: 获取经纬度   官方API   位置->wx.getLocation
+
+			Step2: 把经纬度转化为城市  核心: 使用百度地图的接口
+						传入经纬度,返回数据
+
+			Step3: 和界面结合起来, 当定位开始 界面显示开始定位, 定位成功显示定位到城市
+
+
+		(6)选择城市之后处理
+			Step1: citySelect界面, 保存数据到storage
+				API: 存储 wx.setStorageSync()
+
+			Step2: 其他界面上读取存储中城市
+				API: 读取 wx.getStorageSync()
+
+				注意: 有些界面onLoad只会执行一次, 界面创建执行
+				如果一个代码, 界面每次显示执行, 放到onShow()
+
+	6.登录逻辑
+
+		(1) 界面创建和跳转
+				Step1: 创建界面login,signup,resetreq
+				如果没有登录,跳转到登录, 如果已经登陆了, 直接显示我的界面
+
+				注意: 弹出模态对话框, 使用API:  界面=>wx.showModal()
+				注意: 跳转到某个标签栏页面, 使用 wx.switchTab()
+
+		(2) 登录界面
+
+			密码登录
+				Step1: 完成界面效果
+				Step2: 发起登录请求
+					注意: 是post请求, 在以前基础上设置属性 method:"post"
+					还要设置content-type
+
+				Step3: 处理登录结果
+					注意: 返回数据有个核心属性 status, 0表示失败, 1表示成功
+
+			短信验证码登录
+				Step1: 实现输入手机号的验证
+					每次输入一个手机号的字符, 检测一次, 检测成功
+						把isMobileTwoValidate改为true., 同时添加样式
+
+				Step2: 点击发送验证码, 发送验证码
+
+				Step3: 点击登录, 同时发送手机号和验证码给服务器
+					处理逻辑和密码登录一样了
+
+	7.注册逻辑
+
+		(1)跳转到注册界面
+				创建注册界面
+				实现跳转
+
+
+
+
+
+附录
+	phpStudy
+		Step1: 打开mysql工具,创建数据库 utf8mb4, 数据库名maoyan
+				导入sql文件, 注意编码选择utf8
+
+		Step2: 打开网站根目录, 创建文件夹project, maoyan.rar解压到里面
+				修改project/maoyan/application/config/database.php
+				修改里面数据库密码, 默认账号 root/root
+
+		Step3: 用api.js里面接口,进行检测
+				http://127.0.0.1/project/maoyan/index.php/api/movieOnInfoList?token=
+
+	wxampp
+		Step1: 打开mysql右边的按钮 amdin,创建数据库 utf8mb4_general_ci, 数据库名maoyan
+			导入sql文件, 直接导入, 点击下方执行
+		
+		Step2: 点击explorer打开wxampp的目录, 进入htdocs网站根目录, 创建文件夹project, maoyan.rar解压到里面
+			修改project/maoyan/application/config/database.php
+			修改里面数据库密码, 默认账号 root/空
+		
+		Step3: 用api.js里面接口,进行检测
+				http://127.0.0.1/project/maoyan/index.php/api/movieOnInfoList?token=
+
+
+<!-- 
+	类名规范:
+		全部小写-英文, 
+		good
+			<div class="student-count">
+
+		bad
+		<div class="lbt111">
+				<div class="lbt-lm-1"></div>
+				<div class="lbtL1"></div>
+				<div class="lb_t_L1"></div>
+
+		文件名/函数名/变量名
+			good  全部英文单词, 使用小驼峰  studentCount
+				//studentCount.js
+				studentCount(){
+					studentCount
+				}
+
+			bad:
+				student_count   linux,php,c
+
+		类名, 大驼峰
+			GoodStudent
+			var gs = new GoodStudent()
+	
+		缩写
+			按钮  		button > btn
+			输入框 		input -> ipt
+			包裹器 		wrapper ->  wrap
+			
+
+ -->
+	
+
+</pre>
+	</body>
+</html>

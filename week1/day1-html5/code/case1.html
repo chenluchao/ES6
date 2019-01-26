@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			dialog{
+				background-color: #ececec;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		
+		<header>
+			logo/ 搜索框
+		</header>
+		
+		<nav>
+			首页 / 产品 / 服务 / 我们 / 关于
+		</nav>
+		
+		<section>
+			
+			<aside>
+				左边框
+			</aside>
+			
+			<article>
+				内容
+			</article>
+			
+			<aside>
+				有边框
+			</aside>
+			
+		</section>
+		
+		<footer>
+			
+			版权信息
+			友情链接
+			
+		</footer>
+		
+		<dialog >
+			我是一个快乐的对话框
+		</dialog>
+		
+		<button onclick="dealOpen()">打开/关闭</button>
+		
+		<script type="text/javascript">
+			var t = document.querySelector("dialog")
+			function dealOpen () {
+				
+				var p = t.getAttribute("open")
+				if(p == null){
+					t.setAttribute("open","")
+				}else{
+					t.removeAttribute("open")
+				}
+				console.log(p)
+			}
+		</script>
+		
+		<hr>
+		
+		<details>
+			<summary>
+				我是标题
+			</summary>
+			<p>
+				<ul>
+					<li>1</li>
+					<li>2</li>
+				</ul>
+			</p>
+
+		</details>
+		
+	</body>
+</html>

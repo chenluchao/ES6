@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<script src="js/echarts.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			#main {
+				width: 600px;
+				height: 400px;
+			}
+		</style>
+	</head>
+	<body>
+
+		<div id="main"></div>
+
+		<script type="text/javascript">
+			var tag = document.getElementById("main")
+			var myChart = echarts.init(tag)
+
+			var option = {
+				title:{
+					text:"成绩表",
+					subtext:"1804班",
+					left:"center"
+				},
+				xAxis: {
+					type: 'category',
+					data: ['7月', '8月', '9月', '10月', '11月', '12月']
+				},
+				yAxis: {
+					type: 'value'
+				},
+				series: [{
+					data: [90, 80, 67, 95, 80, 70, 85],
+					type: 'line'
+				}]
+			};
+
+
+			myChart.setOption(option)
+		</script>
+
+	</body>
+</html>

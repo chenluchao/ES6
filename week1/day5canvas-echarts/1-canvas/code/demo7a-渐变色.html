@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+			
+			//函数: 绘制矩形
+			//参数: 左上角点的x,左上角点的y,width,height
+			//注意1:  坐标系原点  canvas左上角
+			//注意2:		x轴,从左到右, y轴从上到下
+			//ctx.fillStyle = "#006611"
+			
+			//渐变色:
+			//0,0,  0,400,   white==>black
+			//参数列表
+			//	起始点x
+			//	起始点y
+			//	结束点x
+			//	结束点y
+			var c = ctx.createLinearGradient(0,0,0,400)
+			c.addColorStop(0,"white")
+			c.addColorStop(0.5,"yellow")
+			c.addColorStop(1,"black")
+			
+			ctx.fillStyle = c
+			
+			ctx.fillRect(0,0,400,400)
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

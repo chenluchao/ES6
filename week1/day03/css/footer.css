@@ -1,0 +1,48 @@
+.footer{
+position: fixed;
+width: 100%;
+height: 49px;
+bottom: 0;
+left: 0;
+background-color: #333;
+border-top: 1px solid #1D1D1D;
+}
+.footer .footer-nav li{
+display: block;
+float: left;
+width: 25%;
+height: 100%;
+}
+.footer .home,.footer .category,.footer .cartgoods,.footer .i{
+display: block;
+width: 18px;
+height: 18px;
+margin: 5px auto;
+background: url(../images/index/btn_nav.png) no-repeat;
+}
+.footer .home{
+	background-size: 36px 80px;
+}
+.footer .category{
+	background-size: 36px 95px;
+	background-position: 0 -20px;
+}
+.footer .cartgoods{
+	background-size: 40px 105px;
+	background-position: 0 -60px;
+}
+.footer .i{
+	background-size: 40px 105px;
+	background-position: 0 -80px;
+}
+.footer .footer-nav li span{
+display: block;
+text-align: center;
+margin-top: 2px;
+font-size: 1em;
+color: #ddd;
+}
+.footer li:hover span{
+color: #FF3838;
+cursor: pointer;
+}

@@ -1,0 +1,65 @@
+/*背景颜色*/
+body{
+	background:pink;
+}
+/*最外层容器样式*/
+.wrap{
+	width: 200px;
+	height: 200px;
+	margin: 150px auto;
+	position: relative;
+}
+/*包裹所有图片的容器样式*/
+.cube{
+	width: 200px;
+	height: 200px;
+	margin: 0 auto;
+	animation: rotate 10s infinite;
+	transform-style: preserve-3d;
+	/*定义要变换样式       水平旋转                               垂直旋转*/
+	transform: rotateX(-30deg) rotateY(-30deg);
+	/*定义动画执行速度---匀速*/
+	animation-timing-function: linear;
+	text-align: center;
+}
+/*定义动画的每一帧*/
+@keyframes rotate{
+	
+		from{transform: rotateX(0deg) rotateY(0deg);}
+	
+		to{transform: rotateX(360deg) rotateY(360deg);}
+}
+/*定义每个div样式*/
+.cube div{
+	/*相对定位*/
+	position: absolute;
+	width: 200px;
+	height: 200px;
+	/*透明度*/
+	opacity: .8;
+	/*过度*/
+	transition: all .4s;
+}
+/*定义所以图片样式*/
+img{
+	width: 200px;
+	height: 200px;
+}
+.cube .out_front{
+	transform: rotateY(0deg) translateZ(100px);
+}
+.cube .out_back{
+	transform: rotateY(180deg) translateZ(-100px);
+}
+.cube .out_left{
+	transform: rotateY(90deg) translateZ(100px);
+}
+.cube .out_right{
+	transform: rotateY(-90deg) translateZ(100px);
+}
+.cube .out_top{
+	transform: rotateX(90deg) translateZ(100px);
+}
+.cube .out_bottom{
+	transform: rotateX(-90deg) translateZ(100px);
+}

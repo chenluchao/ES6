@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+
+	<body>
+
+		<script type="text/javascript">
+			var list = ['a', 'b', 'c']
+			for(var v of list) {
+				console.log("v = " + v)
+			}
+
+			var dict = {
+				'name': 'zs',
+				'age': 15
+			}
+			// 			for(var v of dict){
+			// 				console.log("v = "+v)
+			// 			}
+
+			var dsclass = {
+				"name": "1804",
+				"members": [
+					"niuzhuan",
+					"chenlong",
+					"keke",
+					"qiqi"
+				]
+			}
+
+			dsclass[Symbol.iterator] = function() {
+
+				index = 0;
+				var self = this
+
+				var obj = {
+					next() {
+						//如果序号在有效返回内
+						//返回对象, value是值, done表示结束
+						if(index < self.members.length) {
+							return {
+								value: self.members[index++],
+								done: false
+							}
+						} else {
+							return {
+								value: undefined,
+								done: true
+							}
+						}
+					}
+				}
+				return obj
+			}
+
+			console.log("-------------")
+			for(var v of dsclass) {
+				console.log("v = " + v)
+			}
+		</script>
+
+	</body>
+
+</html>

@@ -1,0 +1,3 @@
+<!--pages/cinemaDetail/cinemaDetail.wxml-->
+<text>这是影院详情</text>
+<navigator url="/pages/seatingPlan/seatingPlan">跳转到选座界面</navigator>

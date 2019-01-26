@@ -1,0 +1,14 @@
+<!--pages/calc/calc.wxml-->
+
+<view class="info">
+  {{info}}
+</view>
+<view class="control">
+  <button wx:for="{{buttons}}" 
+    wx:key="{{index}}"
+    class="{{item.className}}" 
+    bindtap="dealClick" 
+    id="{{item.title}}">
+    {{item.title}}
+  </button>
+</view>

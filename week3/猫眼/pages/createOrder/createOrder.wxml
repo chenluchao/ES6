@@ -1,0 +1,3 @@
+<!--pages/createOrder/createOrder.wxml-->
+<text>这是创建订单界面</text>
+<navigator url="/pages/orderPay/orderPay">跳转到支付界面</navigator>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function *monster(){
+				//idle
+				yield "idle"
+				
+				//attack
+				yield "attack"
+				
+				//die
+				yield "die"
+				
+				//hide
+				yield "hide"
+			}
+			
+			var m = monster();
+			console.log(m);
+			
+			var state = m.next();
+			console.log(state);
+			
+			var state = m.next();
+			console.log(state);
+			
+			var state = m.next();
+			console.log(state);
+			
+			var state = m.next();
+			console.log(state);
+			
+			var state = m.next();
+			console.log(state);
+		</script>
+	</body>
+</html>

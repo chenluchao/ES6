@@ -1,0 +1,60 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+footer {
+	width: 100%;
+	height: 44px;
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	background: black;
+}
+
+ul li{
+	list-style: none;
+}
+
+footer ul a {
+	display: block;
+	float: left;
+	width: 25%;
+	height: 100%;
+	text-decoration: none;
+	color: #fff;
+}
+
+
+footer ul a i {
+	display: block;
+	width: 18px;
+	height: 18px;
+	background: url(../img/btn_nav.png) no-repeat;
+	background-size: 37px 80px;
+	margin: 2px auto;
+}
+
+
+footer ul a .btn-home {
+	
+}
+
+footer ul a .btn-cate {
+	background-position: 0 -44px;
+}
+
+footer ul a .btn-shoppingCar {
+	background-position: 0 -16px;
+}
+
+footer ul a .btn-mine {
+	background-position: 0 -60px;
+}
+
+footer ul li span {
+	display: block;
+	text-align: center;
+}
+
+

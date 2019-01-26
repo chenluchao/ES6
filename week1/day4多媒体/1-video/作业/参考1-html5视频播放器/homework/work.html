@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			html,
+			body {
+				background: #ef6a6c;
+			}
+			
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			html,
+			body {
+				font-size: 12px;
+			}
+			
+			.vbox {
+				margin: 50px auto;
+				width: 600px;
+				position: relative;
+				overflow: hidden;
+			}
+			
+			.vbox p {
+				text-align: center;
+				height: 44px;
+				line-height: 44px;
+				color: #333;
+				border-radius: 3px 3px 0 0;
+				background: #E6E6E6;
+				font-size: 16px;
+			}
+			
+			.vbox video {
+				width: 600px;
+			}
+			
+			.mask {
+				position: absolute;
+				bottom: -37px;
+				left: 0;
+				width: 100%;
+				height: 36px;
+				z-index: 3;
+				background: rgba(255, 255, 255, 0.8);
+			}
+			
+			.mask span {
+				display: inline-block;
+				margin: 8px 3px 0 5px;
+				vertical-align: middle;
+			}
+			
+			.tiao {
+				position: relative;
+				margin-top: 8px;
+				vertical-align: middle;
+				display: inline-block;
+				width: 365px;
+				height: 10px;
+				background: #fff;
+				border: 1px solid lightgray;
+				border-radius: 5px;
+				overflow: hidden;
+			}
+			
+			.over {
+				position: absolute;
+				left: -5px;
+				top: -8px;
+				height: 100%;
+				background: pink;
+			}
+			
+			.right {
+				width: 30px;
+				height: 150px;
+				position: absolute;
+				right: -30px;
+				top: calc(50% - 75px);
+			}
+			
+			.right p {
+				font-size: 12px;
+			}
+			
+			.right p:nth-of-type(n+2) {
+				margin-top: 8px;
+			}
+			
+			.gai {
+				width: 100px;
+				height: 100px;
+				position: absolute;
+				left: calc(50% - 50px);
+				top: calc(50% - 50px);
+				background: gray;
+				border-radius: 50%;
+				text-align: center;
+				line-height: 100px;
+				font-size: 32px;
+			}
+			
+			.active {
+				background: black !important;
+			}
+			
+			.ylcon {
+				width: 70px;
+				height: 20px;
+				background: rgba(255, 255, 255, 0.6);
+				position: absolute;
+				bottom: 65px;
+				right: 28px;
+				text-align: center;
+				line-height: 18px;
+				transform: rotate(-90deg);
+				border-radius: 8px;
+				display: none;
+			}
+			
+			.ylcon>span {
+				display: inline-block;
+				width: 60px;
+				height: 8px;
+				background: gray;
+				position: absolute;
+				top: 6px;
+				left: 5px;
+				border-radius: 5px;
+				overflow: hidden;
+				cursor: pointer;
+			}
+			
+			.ylcon span b {
+				display: inline-block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 10%;
+				height: 100%;
+				background: #d9534f;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="vbox">
+			<div class="gai">
+				播放
+			</div>
+			<div class="vhead">
+				<p>懂的那份感觉</p>
+			</div>
+			<div class="player">
+				<video src="res/zmxl-zhuxian.mp4"></video>
+			</div>
+			<div class="mask">
+				<span class="bo">播放</span>
+				<span class="wan">00:00:00</span>
+				<div class="tiao">
+					<span></span>
+					<span class="over"></span>
+				</div>
+				<span class="sheng">00:00:00</span>
+				<span class="yl">音量</span>
+				<span class="quan">全屏</span>
+			</div>
+			<div class="right">
+				<p>喜欢</p>
+				<p>关灯</p>
+				<p>分享</p>
+			</div>
+			<div class="ylcon">
+				<span>
+					<b></b>
+				</span>
+			</div>
+		</div>
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			var player = document.querySelector(".player video")
+
+			//点击遮盖播放
+			$(".gai").click(function() {
+				player.play();
+			});
+			//点击区域暂停
+			$("video").click(function() {
+				player.pause();
+			});
+			player.addEventListener("play", function() {
+				$(".gai").css({
+					display: 'none'
+				});
+			})
+			player.addEventListener("pause", function() {
+				$(".gai").css({
+					display: 'block'
+				});
+			});
+			//点击播放按钮播放
+			$(".bo").click(function() {
+				player.play();
+			})
+
+			//时间显示
+			var sec_to_time = function(s) {
+				var t;
+				if(s > -1) {
+					var hour = Math.floor(s / 3600);
+					var min = Math.floor(s / 60) % 60;
+					var sec = s % 60;
+					if(hour < 10) {
+						t = '0' + hour + ":";
+					} else {
+						t = hour + ":";
+					}
+
+					if(min < 10) { t += "0"; }
+					t += min + ":";
+					if(sec < 10) { t += "0"; }
+					t += sec.toFixed(0);
+				}
+				return t;
+			}
+			//显示播放时间、总时间进度条、已播放的进度条高亮。
+			var width = $(".tiao").width();
+			setInterval(function() {
+				if(player.currentTime) {
+					$(".wan").html(sec_to_time(parseInt(player.currentTime)));
+				}
+				if(player.duration) {
+					$(".sheng").html(sec_to_time(parseInt(player.duration)));
+					var bi = player.currentTime / player.duration;
+					var tiao = bi * width;
+					$(".over").css({
+						width: tiao
+					})
+				}
+			}, 100)
+
+			//点击进度条控制进度
+			$(".tiao").mousedown(function() {
+				$(window).mousemove(function(e) {
+					var x = e.offsetX;
+					var b = x / width;
+					player.currentTime = b * player.duration;
+				});
+				$(window).mouseup(function() {
+					$(window).off('mousemove')
+				});
+			});
+
+			//全屏
+			$(".quan").click(function() {
+				if(player.requestFullscreen) {
+					player.requestFullscreen()
+				} else if(player.webkitRequestFullScreen) {
+					player.webkitRequestFullScreen()
+				} else if(player.msRequestFullscreen) {
+					player.msRequestFullscreen()
+				} else if(player.oRequestFullscreen) {
+					player.oRequestFullscreen()
+				} else if(player.mozRequestFullScreen) {
+					player.mozRequestFullScreen()
+				}
+			});
+
+			$(".vbox").on("mouseenter", function() {
+				$(".right").stop().animate({
+					right: 0
+				});
+				$(".mask").stop().animate({
+					bottom: 0
+				});
+			});
+			$(".vbox").on("mouseleave", function() {
+				$(".right").stop().animate({
+					right: -30
+				});
+				$(".mask").stop().animate({
+					bottom: -37
+				});
+			});
+
+			//关灯
+			$(".right").children().eq(1).click(function() {
+				$("html,body").toggleClass("active");
+				$(".vhead p").toggleClass("active");
+			});
+
+			//音量控制
+			player.volume = 0.5;
+			var width1 = $(".ylcon span").width();
+			$(".ylcon span").on("click", function(e) {
+				player.muted = false;
+				var x = e.offsetX;
+				var b = x / width1;
+				player.volume = b;
+				$(".ylcon span b").css({
+					width: x
+				})
+				//console.log(x)
+			});
+			//是否静音
+			$(".yl").click(function() {
+				if(!player.muted) {
+					player.muted = true;
+				} else {
+					player.muted = false;
+				}
+			})
+			var time1 = null;
+			var time2 = null;
+			$(".yl").on("mouseenter", function() {
+				clearTimeout(time2);
+				$(".ylcon").css({
+					display: "block"
+				})
+			});
+			
+			$(".yl").on("mouseleave", function() {
+				time1 = setTimeout(function() {
+					$(".ylcon").css({
+						display: "none"
+					})
+				}, 300)
+			});
+			$(".ylcon").on("mouseenter",function(){
+				clearTimeout(time1);
+			});
+			$(".ylcon").on("mouseleave",function(){
+				time2 = setTimeout(function() {
+					$(".ylcon").css({
+						display: "none"
+					})
+				}, 300)
+			});
+		</script>
+	</body>
+
+</html>

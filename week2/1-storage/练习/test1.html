@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<input type="text" name="user" id="user" placeholder="用户名" />
+		</div>
+		<div>
+
+			<p><button onclick="dealSave()">存储值</button></p>
+			<p><button onclick="dealGet()">获取值</button></p>
+			<p><button onclick="dealRemove()">移除值</button></p>
+			<p><button onclick="dealClear()">清除</button></p>
+
+		</div>
+		<script type="text/javascript">
+			var userT=document.getElementById("user");
+			
+			
+			function dealSave() {
+
+				if(window.localStorage) {
+					//window.localStorage.setItem(k,v)
+					localStorage.user = userT.value
+				}
+			}
+			
+			function dealGet(){
+				var user=localStorage.user;
+				alert(user);
+			};
+			
+			function dealRemove(){
+				localStorage.removeItem("user")
+			};
+			
+			function dealClear(){
+				localStorage.clear();
+			};
+		</script>
+	</body>
+</html>

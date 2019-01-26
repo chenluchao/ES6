@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<link rel="stylesheet" type="text/css" href="reset.css" />
+
+		<style>
+			.header {
+				width: 960px;
+				height: 81px;
+				margin: 0 auto;
+				text-align: left;
+				position: relative;
+			}
+			
+			.header .bg {
+				width: 644px;
+				height: 27px;
+				background-position: 0 0;
+				position: absolute;
+				left: 0;
+				top: 30px;
+			}
+			.header .bg{
+				background-image: url(img/glb_v2.png);
+			}
+			
+			.header .bg a {
+				display: block;
+				width: 128px;
+				height: 27px;
+				white-space: nowrap;
+				text-indent: 3000px;
+				overflow: hidden;
+				float: left;
+			}
+			
+			.header .links {
+				width: 200px;
+				position: absolute;
+				right: 0;
+				top: 34px;
+				text-align: right;
+				color: #999;
+			}
+			
+			.header .links a {
+				margin: 0 5px;
+			}
+			
+			
+			.content {
+				width: 960px;
+				margin: 0 auto;
+				text-align: left;
+			}
+			
+			.content-tit{
+				background-image: url(img/bgx.png);
+				background-repeat: repeat-x;
+			}
+			
+			.content-tit {
+				height: 36px;
+				background-position: 0 0;
+				background-color: #6495C6;
+				border: #5B88B8 1px solid;
+				border-radius: 3px 3px 0 0;
+			}
+			
+			.content-tit h1 {
+				font-size: 14px;
+				line-height: 36px;
+				font-weight: normal;
+				color: #FFF;
+				text-indent: 20px;
+			}
+			
+			.content .mainBody-wp {
+				border: #E0E0E0 1px solid;
+				border-top-width: 0;
+				background: url(img/bgy.png) repeat-y 0 0;
+			}
+			.mainBody-wp {
+				overflow: hidden;
+				_zoom: 1;
+				position: relative;
+			}
+			
+			.content .mainBody {
+				width: 582px;
+				float: left;
+				padding: 50px 0 36px 60px;
+				zoom: 1;
+			}
+			
+			.content .mainBody-side {
+				width: 315px;
+				float: right;
+				background-color: #F5F5F5;
+				height: 600px;
+			}
+			
+			
+			.regTabs {
+				height: 58px;
+				padding-left: 55px;
+			}
+			
+			.regTabs ul {
+				width: 412px;
+				height: 35px;
+				background-image: url(img/tab.jpg);
+				background-repeat: no-repeat;
+			}
+			
+			.regTabs li {
+				width: 137px;
+				height: 35px;
+				float: left;
+			}
+			
+			.regTabs a {
+				display: block;
+				width: 100%;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				color: #555;
+				font-size: 14px;
+			}
+			
+			.regTabs .tabs1-on .a1, .regTabs .tabs1-on .a1:hover, .regTabs .tabs2-on .a2, .regTabs .tabs2-on .a2:hover, .regTabs .tabs3-on .a3, .regTabs .tabs3-on .a3:hover {
+				font-weight: bold;
+				color: #FFF;
+				cursor: default;
+				text-decoration: none;
+			}
+			
+			.regForm {
+				margin-left: 9px;
+			}
+			
+			.mainBody-hasFocus-focusArea {
+				position: relative;
+				background-color: #FFF;
+				z-index: 11;
+				margin-right: 60px;
+			}
+			
+			.regForm-item {
+				position: relative;
+			}
+			
+			dt {
+					display: block;
+			}
+
+			.regForm-item-tit {
+				width: 110px;
+			}
+			.regForm-item-tit {
+					position: absolute;
+					width: 85px;
+					position: absolute;
+					left: 0;
+					top: 13px;
+					text-align: right;
+					font-size: 14px;
+			}
+			
+			dd {
+					display: block;
+					margin-inline-start: 40px;
+			}
+			.regForm-item-tit .txt-impt {
+					margin-right: 4px;
+			}
+
+			.txt-err, .txt-impt {
+					color: #C00;
+			}
+
+
+
+
+			.regForm-item-ct {
+					padding: 8px 0 8px 105px;
+					zoom: 1;
+					position: relative;
+			}
+
+
+			.regForm-item-ct .ipt {
+					width: 200px;
+			}
+			.ipt {
+					padding: 4px 5px;
+					border: #ABABAB 1px solid;
+					box-shadow: 2px 2px 3px #EDEDED inset;
+					font-size: 14px;
+					font-weight: bold;
+					border-radius: 3px;
+			}
+			select {
+					padding: 3px;
+					font-size: 14px;
+					font-weight: bold;
+					color: #555;
+			}
+
+			.regForm-item-ct .btns {
+					padding-top: 5px;
+			}
+			strong, b {
+					font-weight: bold;
+			}
+			.btn {
+				display: inline-block;
+				
+					height: 28px;
+					padding: 0 20px;
+					font-size: 14px;
+					background-position: 0 -72px;
+					border: #BBB 1px solid;
+					text-decoration: none;
+					line-height: 28px;
+					color: #555;
+					border-radius: 3px;
+					outline: none;
+					
+			}
+			.content-tit, .btn, .btn-main, .btnSml {
+					background-image: url(img/bgx.png);
+					background-repeat: repeat-x;
+			}
+
+
+			.regForm-item {
+					position: relative;
+			}
+
+			.btnReg{
+				background-image: url(img/glb_v2.png);
+				background-repeat: no-repeat;
+			}
+
+			.btnReg {
+					display: inline-block;
+					
+					width: 119px !important;
+					height: 37px !important;
+					font-size: 14px;
+					background-position: 0 -360px;
+					text-decoration: none;
+					line-height: 37px;
+					color: #FFF;
+					outline: none;
+					text-align: center;
+					font-weight: bold;
+			}
+	
+			.page, .header, .content, .footer {
+				margin: auto;
+			}
+			.footer {
+				text-align: center;
+				clear: both;
+				height: 40px;
+				line-height: 40px;
+				color: #999;
+			}
+			.footer a {
+				color: #999;
+			}
+			
+		</style>
+
+	</head>
+	<body>
+
+		<header class="header">
+			<div class="bg">
+				<a tabindex="-1" href="http://mail.163.com/" target="_blank" title="网易163免费邮">网易163免费邮</a>
+				<a tabindex="-1" href="http://www.126.com/" target="_blank" title="网易126免费邮">网易126免费邮</a>
+				<a tabindex="-1" href="http://www.yeah.net/" target="_blank" title="网易Yeah.net免费邮">网易Yeah.net免费邮</a>
+			</div>
+			<div class="links">
+				<a tabindex="-1" href="http://mail.163.com/html/mail_intro/" target="_blank">了解更多</a>|<a tabindex="-1" href="http://help.mail.163.com/feedback.do?m=add&amp;categoryName=%e6%b3%a8%e5%86%8c"
+				 target="_blank">反馈意见</a>
+			</div>
+		</header>
+
+		<section class="content">
+			<header class="content-tit">
+				<h1>欢迎注册无限容量的网易邮箱！邮件地址可以登录使用其他网易旗下产品。</h1>
+			</header>
+
+			<div id="mMaskD" class="mainBody-wp">
+				<div class="mainBody">
+
+					<div class="regTabs">
+						<ul id="tabsUl" class="tabs1-on">
+							<li><a tabindex="-1" href="javascript:void(0);" onclick="_Global.main.turnOn();return false;" class="a1" style="text-decoration:none;">注册字母邮箱</a></li>
+							<li><a tabindex="-1" href="javascript:void(0);" onclick="_Global.mobile.turnOn(null,'tab');return false;" class="a2"
+								 style="text-decoration:none;">注册手机号码邮箱</a></li>
+							<li><a tabindex="-1" href="javascript:void(0);" onclick="_Global.vip.turnOn();return false;" class="a3" style="text-decoration:none;">注册VIP邮箱</a></li>
+						</ul>
+					</div>
+
+
+					<div id="regMain" class="regForm">
+						<dl id="nameDl" class="regForm-item mainBody-hasFocus-focusArea">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>邮件地址</dt>
+							<dd class="regForm-item-ct">
+								<input onfocus="HGW(this);" onblur="SGW(this);" id="nameIpt" name="name" type="text" class="ipt" style="font-weight: normal; color: rgb(153, 153, 153);"
+								 autocomplete="off" value="">
+								<strong class="txt-14">@</strong>
+								<select name="mainDomain" id="mainDomainSelect" tabindex="-1">
+									<option selected="selected" value="163.com">163.com</option>
+									<option value="126.com">126.com</option>
+									<option value="yeah.net">yeah.net</option>
+								</select>
+								<div id="nameTips" class="tips">
+									<span class="txt-tips">6~18个字符，可使用字母、数字、下划线，需以字母开头</span>
+								</div>
+								<div id="conflictDiv" class="owned" style="display:none">
+									<div class="arr"></div>
+									<div class="attent">
+										<b class="ico ico-warn-big"></b>
+										<strong id="conflictTitle" class="txt-impt txt-14">该邮件地址已被注册</strong>
+									</div>
+									<div id="conflictOthersDiv" class="others">
+										<div id="conflictMobile" class="ctExt">
+											推荐您注册<a href="javascript:void(0);" onclick="_Global.mobile.turnOn(null,'recommend1');return false;"
+											 hidefocus="true"><strong class="txt-succ">手机号码@163.com</strong></a>
+											<a href="javascript:void(0);" onclick="_Global.mobile.turnOn(null,'recommend2');return false;" class="btnSml"
+											 hidefocus="true">免费注册</a>
+										</div>
+										<div>您还可以选择：</div>
+										<ul id="conflictOthers"></ul>
+									</div>
+								</div>
+							</dd>
+						</dl>
+						<dl id="mainPwdDl" class="regForm-item">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>密码</dt>
+							<dd class="regForm-item-ct">
+								<input id="mainPwdIpt" name="mainPassword" type="password" class="ipt norWidthIpt" style="ime-mode:disabled">
+								<div id="mainPwdTips" class="tips" style="position:relative">
+									<div id="mainPwdStatus" class="pswState pswState-poor" style="display:none;">
+										<span class="s1">弱</span>
+										<span class="s2">中等</span>
+										<span class="s3">强</span>
+									</div>
+									<span class="txt-tips">6~16个字符，区分大小写</span>
+								</div>
+							</dd>
+						</dl>
+						<dl id="mainCfmPwdDl" class="regForm-item">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>确认密码</dt>
+							<dd class="regForm-item-ct">
+								<input id="mainCfmPwdIpt" name="mainConfirmPassword" type="password" class="ipt norWidthIpt" style="ime-mode:disabled">
+								<div id="mainCfmPwdTips" class="tips">
+									<span class="txt-tips">请再次填写密码</span>
+								</div>
+							</dd>
+						</dl>
+
+						<dl id="mainMobileDl" class="regForm-item">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>手机号码</dt>
+							<dd class="regForm-item-ct">
+								<div class="inputContainer itlPhone">
+									<input type="text" id="mainMobileIpt" name="mobile" class="input ipt norWidthIpt ipt-err" value="" style="padding-left: 35px;width:292px;">
+
+
+									<div id="mainMobileTips" class="tips" style="display: none;">
+										<span class="txt-tips">忘记密码时，可以通过该手机号码快速找回密码</span>
+									</div>
+									<div id="m_mainMobile" class="tips"><span class="txt-err"><b class="ico ico-warn-sml"></b>&nbsp;&nbsp;请填写正确的手机号</span></div>
+							</dd>
+						</dl>
+						<dl id="vcodeDl" class="regForm-item vCodeArea vCodeArea-big">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>验证码</dt>
+							<dd class="regForm-item-ct">
+								<input id="vcodeIpt" name="vcode" type="text" class="ipt" autocomplete="off" style="width: 196px;">
+								<img id="vcodeImg" class="vCode" style="cursor:pointer;" src="img/call.jpeg"
+								 alt="验证码" width="120" height="50"><a id="vcodeA" href="javascript:void(0);" class="switchvCode" tabindex="-1">看不清楚？换张图片</a>
+								<div id="vcodeTips" class="tips">
+									<span class="txt-tips" id="vRemind">请填写图片中的字符，不区分大小写</span>
+								</div>
+
+								<div class="btns">
+									<a id="sendMainAcodeBtn" href="javascript:void(0);" class="btn" hidefocus="true" onclick="_Global.main.mainAcode();">
+										<strong id="sendMainAcodeStg">免费获取验证码</strong></a>
+									<span id="acodeMainSentSpan" class="txt-succ" style="display:none;">&nbsp;&nbsp;短信验证码已发送</span>
+								</div>
+							</dd>
+						</dl>
+
+						<dl id="acodeMainDl" class="regForm-item">
+							<dt class="regForm-item-tit"><span class="txt-impt">*</span>短信验证码</dt>
+							<dd class="regForm-item-ct">
+								<input id="mainAcodeIpt" name="acode" type="text" class="ipt norWidthIpt" autocomplete="off">
+								<div id="mainAcodeTips" class="tips">
+									<span class="txt-tips">请查收手机短信，并填写短信中的验证码</span>
+								</div>
+							</dd>
+						</dl>
+						<dl id="mainAcceptDl" class="regForm-item">
+							<dd class="regForm-item-ct txt-tips">
+								<label></label><input id="mainAcceptIpt" type="checkbox" checked="checked" tabindex="-1"> 同意<a href="http://reg.163.com/agreement.shtml"
+								 target="_blank" tabindex="-1">"服务条款"</a>和<a href="http://reg.163.com/agreement_game.shtml" target="_blank"
+								 tabindex="-1">"隐私权相关政策"</a>
+								<div id="mainAcceptTips"></div>
+							</dd>
+						</dl>
+						<dl class="regForm-item">
+							<dd class="regForm-item-ct">
+								<a id="mainRegA" href="javascript:void(0);" onclick="_Global.main.start();" class="btnReg">立即注册</a>
+								<a id="mainRegA_d" href="javascript:void(0);" class="btnRegDisable" style="display:none">立即注册</a>
+							</dd>
+						</dl>
+					</div>
+
+				</div>
+
+				<div class="mainBody-side">
+
+				</div>
+			</div>
+
+		</section>
+
+		<footer class="footer" style="height:80px">
+			<a tabindex="-1" href="http://corp.163.com/index_gb.html" target="_blank">关于网易</a>&nbsp;&nbsp;<a tabindex="-1" href="http://mail.163.com/html/mail_intro" target="_blank">关于网易免费邮</a>&nbsp;&nbsp;<a tabindex="-1" href="http://mail.blog.163.com/" target="_blank">邮箱官方博客</a>&nbsp;&nbsp;<a tabindex="-1" href="http://help.163.com/" target="_blank">客户服务</a>&nbsp;&nbsp;<a tabindex="-1" href="http://corp.163.com/gb/legal/legal.html" target="_blank">隐私政策</a>&nbsp;&nbsp;|&nbsp;&nbsp;网易公司版权所有&nbsp;©&nbsp;1997-<script src="http://mimg.127.net/copyright/year.js"></script>2018<br>数据来源：艾媒咨询《2015-2018中国个人邮箱行业研究报告》
+		</footer>
+
+	</body>
+</html>

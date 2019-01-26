@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+<h2>计算器</h2>		
+
+<pre>
+
+目录
+
+基础知识:
+	微信开发工具的下载和安装
+	创建项目
+	创建页面
+	view组件(容器)
+	text组件
+	input输入框
+	button
+	外部js的导入
+项目
+	实现UI界面
+	实现按钮点击操作
+	实现数据计算
+
+课程内容
+
+
+基础知识:
+	微信开发工具的下载和安装
+	创建项目
+		q.如何创建项目?
+			点击菜单栏中项目 => 新建项目
+			选择位置, 选择appid,默认选择测试号
+			输入项目名
+	
+	微信小程序的项目结构?
+		q. project.config.json是干嘛的?
+			是项目的配置文件, 核心属性appid和projectname
+			
+		q. app.json是干嘛的?
+			是应用配置文件, 以后添加页面, 在pages数组添加
+			以后添加标签栏, 在tabbar添加
+			
+		q. app.wxss是什么?
+			.wxss是微信样式文件, 类似前端css文件, 里面语法也类似css,
+			支持的选择器默认 id class ::after ::before a,b 
+			
+		q. app.js是什么?
+			是程序的入口文件, 里面定义对象 App, 核心函数 onLauch, 程序加载的执行
+			
+			
+		q. 一个页面的 .wxml 是什么?
+			.wxml存储是一个页面组件的解构, 类似前端html文件,但是使用微信自定义的组件
+			html中的标签不能用
+			
+		q. 一个页面.wxss是什么?
+			.wxss是微信样式文件, 类似前端css文件, 里面语法也类似css
+			.wxss写的内容覆盖app.wxss
+			
+		q. 一个页面.js是什么?
+			.js是页面的脚本文件, 语法和js一样, 但是没有dom,没有bom,没有window
+			如何修改数据?  使用 [数据绑定]
+		
+		q. 一个页面.json是什么?
+			是一个页面的配置文件, 这个文件中的配置覆盖app.json
+			
+	
+	创建页面
+		q.如何创建界面, 第一种方式
+			app.json的pages属性, 添加一个界面路径, 工具自动创建界面
+			
+			注意1: app.json的pages属性中第一个页面, 默认显示的界面
+			
+		q.如何创建界面,第二种方式
+			先pages文件夹, 新建一个目录, 然后点击新建page,输入页面名,创建4个文件
+			
+			注意2: app.json的pages属性自动添加界面路径
+		
+	
+	view组件(容器)  == (html div)
+	text组件   == (html span)
+	button   == (html button)
+	
+	
+	数据的显示与修改
+		q.如何把js中数据显示到界面?
+			以前:  getElementById获取对象, 然后设置innerHTML
+			微信小程序: 使用数据绑定
+			
+			注意1: page中js中data里面添加的数据, wxml界面通过 {{}}直接显示
+	
+		q.如何给button添加点击事件
+			给按钮添加属性 bindtap='dealTap'
+			Page对象中添加一个函数 dealTap
+			
+		q.如何在js中获取值
+		
+			直接通过 this.data.num获取
+		
+		
+		q.并且修改值?
+	
+			不能直接修改this.data.num, 因为改了之后,界面不会同步
+			通过 this.setData({
+				num:newNum
+			})
+	
+	
+	外部js的导入
+	
+	
+	input输入框   == (html input)
+	
+项目
+	实现UI界面
+	实现按钮点击操作
+	实现数据计算
+	
+	
+</pre>
+		
+		
+	</body>
+</html>

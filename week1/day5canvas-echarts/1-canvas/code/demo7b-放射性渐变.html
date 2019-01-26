@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+			
+			
+			
+			
+			ctx.beginPath()
+			ctx.moveTo(250,200)
+			ctx.arc(200,200,50,0,Math.PI*2)
+			
+
+			
+			//从一个圆圈到另外一个圆圈
+			var c = ctx.createRadialGradient(200,200,10,200,200,50)
+			c.addColorStop(0,"yellow")
+			c.addColorStop(1,"#ffffdd")
+			
+			ctx.fillStyle = c;
+			ctx.fill();
+			
+			
+			ctx.beginPath()
+			ctx.moveTo(210,200)
+			ctx.arc(200,200,10,0,Math.PI*2)
+			ctx.stroke()
+			
+			ctx.beginPath()
+			ctx.moveTo(250,200)
+			ctx.arc(200,200,50,0,Math.PI*2)
+			ctx.stroke()
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

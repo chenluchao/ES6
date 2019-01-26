@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<div>
+			
+			<input id="username" type="text" placeholder="请输入用户名">
+		</div>
+		
+		<div>
+			<p><button onclick="dealSave()">存储值</button></p>
+			<p><button onclick="dealGet()">获取值</button></p>
+			
+			<p><button onclick="dealRemove()">移除值</button></p>
+			<p><button onclick="dealClear()">清除</button></p>
+			
+		</div>
+		
+		<div>
+			<a href="newpage.html">New</a>
+		</div>
+		
+		<script type="text/javascript">
+		
+			var usernameTag = document.getElementById("username")
+			
+			function dealSave(){
+				
+				if(window.localStorage){
+					//window.localStorage.setItem(k,v)
+					sessionStorage.username = usernameTag.value
+				}
+			}
+			function dealGet(){
+				//var v = localStorage.getItem("a")
+				var username = sessionStorage.username
+				alert(username)
+			}
+			
+			function dealRemove () {
+				sessionStorage.removeItem("username")
+			}
+			
+			function dealClear () {
+				sessionStorage.clear()
+			}
+			
+		</script>
+		
+	</body>
+</html>

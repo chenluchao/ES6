@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			
+			var list = ['a','b','c']
+			for(var v of list){
+				console.log("v = "+v)
+			}
+			
+			var dict = {
+				"name":"zs",
+				"age":15
+			}
+			
+			var dsclass = {
+				"name":"1804",
+				"members":[
+					"aaa",
+					"sss",
+					"wwww"
+				]
+			}
+			
+			dsclass[Symbol.iterator] = function(){
+				index = 0;
+				var self = this;
+				var obj = {
+					next(){
+						if(index < self.members.length){
+							return {
+								value:self.members[index++],
+								done:false
+							}
+						}else{
+							return {
+								value:undefined,
+								done:true
+							}
+						}
+					}
+				}
+				return obj;
+			}
+			
+			console.log("----------------");
+			for(var v of dsclass){
+				console.log("v="+v);
+			}
+		</script>
+	</body>
+</html>

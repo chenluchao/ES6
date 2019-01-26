@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box {
+				width: 100px;
+				height: 100px;
+				padding: 10px;
+				border: 1px solid black;
+			}
+			
+			.img {
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="box" ondrop="drop(event)" ondragover="dragover(event)">
+
+		</div>
+		<div class="box" ondrop="drop(event)" ondragover="dragover(event)">
+			<img id="t" class="img" src="100x100.png" draggable="true" ondragstart="dragstart(event)" />
+		</div>
+
+		<script type="text/javascript">
+			function dragstart(event) {//选中拖拽的元素--拖拽开始
+				//console.log(event)
+				var id = event.target.id;//获取拖拽的元素的id
+				//console.log(id)
+				event.dataTransfer.setData("id", id);//将要拖拽的元素的id通过数据传输（dataTransfer）设置要传输的数据
+			}
+
+			function dragover(event) {//拖拽过程中
+				event.preventDefault()//阻止默认行为
+			}
+
+			function drop(event) {//拖拽结束放置元素
+				var id = event.dataTransfer.getData("id");//通过数据传输（dataTransfer）得到所操作的元素
+				var img = document.getElementById(id);//通过由数据传输（dataTransfer）获得的属性找到该元素
+				var target = event.target;//获取要放置的位置
+				target.appendChild(img);//将目标元素放置在所需的位置
+
+			}
+		</script>
+	</body>
+
+</html>

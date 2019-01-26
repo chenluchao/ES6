@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+			
+	
+			
+			ctx.rect(50,220,100,100)
+			ctx.fillStyle = "red"
+			ctx.fill()
+			
+			ctx.lineWidth = 10
+			ctx.strokeStyle = "blue"
+			ctx.stroke()
+			
+			//清空显示
+			//ctx.clearRect(0,0,400,400)
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

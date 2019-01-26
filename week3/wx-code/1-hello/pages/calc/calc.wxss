@@ -1,0 +1,45 @@
+/* pages/calc/calc.wxss */
+
+.info{
+  width: 750rpx;
+  height: 260rpx;
+  background-color: black;
+  color: white;
+  text-align: right;
+  font-size: 36px;
+
+  box-sizing: border-box;
+  padding-top: 140rpx;
+  padding-right: 20rpx;
+}
+
+.control{
+  display: flex;
+  flex-wrap: wrap;
+}
+.btn{
+  width: 25%;
+  height: 140rpx;
+  line-height: 140rpx;
+}
+
+.zero{
+  width: 50%;
+}
+.operate{
+  color: white;
+  background-color: orange;
+}
+
+
+/* 去除原有边框和圆角, 添加自己的边框  */
+.btn{
+  border-radius: 0;
+  box-sizing: border-box;
+}
+.btn::after{
+  border: none;
+  border-radius: 0;
+
+  border:0.5px solid #ccc;
+}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style type="text/css">
+			
+			
+			
+			/* 75--max */
+			@media screen and (min-width:750px){
+				.s1{
+					width: 100%;
+					height: 300px;
+					background-color: lightcoral;
+					
+					overflow: hidden;
+				}
+				
+				.content{
+					float:left;
+					width: 70%;
+				}
+				
+				.aside{
+					float:left;
+					width: 30%;
+					background-color: lightgrey;
+					height: 100%;
+				}
+			}
+			
+			
+			/* 0~750 */
+			@media screen and (max-width:750px){
+				
+				.aside{
+					display: none;
+				}
+				
+			}
+			
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="s1">
+			
+			<div class="content">
+				我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,
+				我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,
+				我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,我是内容,
+			</div>
+			
+			<div class="aside">
+				aside
+			</div>
+			
+			
+		</div>
+		
+		
+		
+	</body>
+</html>

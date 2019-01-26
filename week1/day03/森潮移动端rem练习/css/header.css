@@ -1,0 +1,29 @@
+header{
+width: 100%;
+background: #64ab5b;
+}
+header>span{
+line-height: 0.5rem;
+color: #fff;
+display: inline-block;
+}
+header>span:nth-of-type(1){
+font-size: 0.12rem;
+margin-left: 0.15rem;
+width: 15%;
+}
+header>span:nth-of-type(2){
+font-size: 0.16rem;
+width: 60%;
+text-align: center;
+}
+header>span:nth-of-type(3){
+width: 18%;
+vertical-align: middle;
+}
+header>span:nth-of-type(3) img{
+float: right;
+vertical-align: middle;
+width: 0.22rem;
+height: 0.18rem;
+}

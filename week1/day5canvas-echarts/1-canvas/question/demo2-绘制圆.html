@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+			
+			//假设我们要绘制完整的圆
+			//x=200,y=200
+			//r=50
+			var d = Math.PI / 180
+			
+			//绘制扇形, moveTo到圆心
+			ctx.beginPath()
+			ctx.moveTo(200,200)
+			ctx.arc(200,200,50,180*d,270*d)
+			ctx.fill()
+			
+			
+			//绘制圆弧, moveTo到圆弧的起点
+			ctx.beginPath()
+			ctx.moveTo(150,300)
+			ctx.arc(200,300,50,180*d,270*d)
+			ctx.stroke()
+			
+			
+			
+			
+			
+		</script>
+		
+	</body>
+</html>

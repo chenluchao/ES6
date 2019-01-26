@@ -1,0 +1,63 @@
+/* pages/cinema/cinema.wxss */
+
+.search-box{
+  display: flex;
+  border-bottom: 1px solid #ccc;
+  height: 44px;
+  padding-left: 15px;
+  line-height: 44px;
+  align-items: center;
+}
+.search-box input{
+  margin-left: 10px;
+  border: 1px solid #ccc;
+}
+
+.filter-box{
+  display: flex;
+  height: 44px;
+  line-height: 44px;
+  justify-content: space-around;
+  border-bottom: 1px solid #ccc;
+}
+
+.cinema-box{
+  position: absolute;
+  width: 100%;
+  top: 88px;
+  bottom: 0;
+
+  overflow-y: scroll;
+}
+.cinema-box::-webkit-scrollbar{
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.cinema-item{
+  height: 100px;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.line-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+.limit-width{
+  width: 80%;
+}
+.addr-box{
+  display: flex;
+}
+
+.item-price{
+  color: #f03d37;
+}
+
+.info{
+  font-size: 14px;
+  color: #777;
+}

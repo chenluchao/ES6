@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//定义Person类
+			class Person{
+				
+				//添加属性
+				//constructor是固定方法,当new这个类执行
+				constructor(name,age,sex) {
+				    this.name = name
+					this.age = age
+					this.sex = sex
+				}
+				
+				//添加的方法
+				say(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex)
+				}
+			}
+			
+			var zs = new Person('zs',18,'boy')
+			zs.name = "zhangsan"
+			zs.say()
+			
+			
+			//继承类
+			//注意1: 继承类首先写extends 类名
+			//注意2: 子类的constructor执行super,调用父类初始化
+			class Student extends Person{
+				constructor(name,age,sex,score) {
+					//执行父类的初始化
+					super(name,age,sex)
+					
+					this.score = score
+				}
+				
+				say(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex+" score="+this.score)
+				}
+			}
+			
+			var hanmeimei = new Student('hanmeimei',18,'boy',101)
+			hanmeimei.say()
+			
+		</script>
+		
+		
+	</body>
+</html

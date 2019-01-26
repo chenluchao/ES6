@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//模拟数据下载
+			//参数1: url
+			//参数2: 成功回调
+			//参数3: 失败回调
+			function requestUrl(url,success,fail){
+				
+				setTimeout(function (){
+					
+					var b = 1
+					if(b){
+						success(url+"-ddddd")
+					}else{
+						fail(url+"-errrrr")
+					}
+					
+				},2000)
+			}
+			
+			requestUrl("login",function(data){
+				
+				console.log(data)
+				
+				
+				requestUrl("getUserList",function(data){
+					
+					console.log(data)
+					
+					
+					requestUrl("sendMessage",function(data){
+						
+						console.log(data)
+
+						console.log("全部请求完成!")
+					},function(){
+						
+					})
+					
+					
+				},function(){
+					
+				})
+				
+				
+			},function(){
+				
+			})
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

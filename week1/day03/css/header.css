@@ -1,0 +1,42 @@
+*{
+padding: 0;
+margin: 0;
+}
+header{
+width: 100%;
+height: 45px;
+background: #ff495c;
+position: relative;
+}
+header .btn_left{
+display: block;
+height: 45px;
+width: 15%;
+float: left;
+background:  url("../images/index/btn_bg.png") no-repeat;
+background-position:   8px 6px;
+}
+header .text-input{
+display: block;
+float: left;
+position: absolute;
+left: 15%;
+width: 65%;
+height: 26px;
+outline: none;
+top: 9px;
+border: none;
+border-radius: 25px;
+padding-left: 10px;
+}
+header .btn-sub{
+display: block;
+float: right;
+width: 26px;
+height: 26px;
+border: none;
+margin-top: 7px;
+background: url(../images/index/btn_search.png) no-repeat 5px 0;
+background-size: 30px 30px;
+outline: none;
+}

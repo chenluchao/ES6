@@ -1,0 +1,108 @@
+/* pages/mine/mine.wxss */
+.mine-top{
+  width: 100%;
+  padding: 0rpx 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  height: 98rpx;
+  line-height: 88rpx;
+  border-bottom: 10rpx solid #ccc;
+}
+.mine-top>view{
+  width: 355rpx;
+  height: 88rpx;
+  font-size: 28rpx;
+  text-align: center;
+}
+.mine-top>.mt-on{
+ border-bottom: 10rpx solid red;
+ color: red;
+}
+.mb-on{
+  display: none;
+}
+
+.mine-box{
+
+  background: #f6f6f6;
+}
+.mb-one{
+  background: #fff;
+}
+.mb-one>input{
+  padding: 20rpx;
+  border-bottom: 1rpx solid #ccc;
+  font-size: 28rpx; 
+}
+.mbo-btn{
+  padding: 20rpx;
+  background: #f6f6f6;
+}
+.mbo-btn>button{
+  background: #DF2D2D;
+  color: #fff;
+}
+.mb-two{
+  background: #fff;
+  padding:15rpx 20rpx;
+  border-bottom: 1rpx solid #ccc;
+  font-size: 32rpx;
+}
+.mb-two>input{
+  padding-left: 10rpx;
+  font-size: 28rpx; 
+  height: 60rpx;
+  width: 400rpx;
+}
+.mb-two:first-child{
+  display: flex;
+}
+.mbt-btn{
+  font-size: 28rpx; 
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 10rpx;
+  background: #f1f1f1;
+  border: none;
+  border: 1rpx solid #ccc;
+}
+.mbt-btn::after{
+ border-radius: 0;
+ border: none;
+}
+.mb-two>.noteInput{
+  background: #f1f1f1;
+  width: 650rpx;
+}
+.mt-btn{
+  padding: 20rpx;
+}
+.mt-btn>button{
+  background: #eee;
+  border: none;
+}
+.nav-warpe{
+  padding: 20rpx;
+  display: flex;
+  justify-content: space-between;
+  color: red;
+  font-size: 32rpx;
+}
+
+.capy{
+  text-align: center;
+  font-size: 32rpx;
+}
+.capy>text{
+  color: red;
+}
+
+.send-btn-validate{
+	color: red;
+	border: 1px solid red;
+}
+.btn-validate{
+	color: white;
+	background-color: red !important;
+}

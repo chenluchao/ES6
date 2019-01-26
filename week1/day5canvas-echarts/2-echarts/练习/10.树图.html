@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#main {
+				width: 600px;
+				height: 400px;
+				margin: 50px auto;
+				border: 1px solid #f90;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main"></div>
+
+		<script type="text/javascript">
+			var tag = document.getElementById("main");
+			var myChart = echarts.init(tag);
+
+			myChart.showLoading();
+			myChart.showLoading();
+			$.get('json/flare.json', function(data) {
+				myChart.hideLoading();
+
+				myChart.setOption(option = {
+					tooltip: {
+						trigger: 'item',
+						triggerOn: 'mousemove'
+					},
+					series: [{
+						type: 'tree',
+
+						data: [data],
+
+						top: '18%',
+						bottom: '14%',
+
+						layout: 'radial',
+
+						symbol: 'emptyCircle',
+
+						symbolSize: 7,
+
+						initialTreeDepth: 3,
+
+						animationDurationUpdate: 750
+
+					}]
+				});
+			});
+			//myChart.setOption(option);
+		</script>
+
+	</body>
+
+</html>

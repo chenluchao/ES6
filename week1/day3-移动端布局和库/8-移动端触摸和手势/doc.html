@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+<h1>移动端触摸和手势</h1>		
+		
+<pre>
+	
+目录
+	1.移动端事件简介
+	
+	2.触摸事件4个事件使用
+	
+	3.事件对象的属性
+	
+	4.fastclick解决300ms和点击穿透
+	
+	5.腾讯出品手势库 AlloyFinger
+	
+
+课程内容
+
+1.移动端事件简介
+
+	q.移动端输入和pc端有什么不同
+	
+		不同1: 手机没有鼠标,手机有触摸(多点触摸,手势)
+		不同2: 手机没有键盘,有虚拟键盘(导致问题:遮挡内容)
+		不同3: 输入区域手机比较少,考虑有些人指头太大
+				按钮不能做的太小, 正常最好不要小于44x44
+				
+				
+	q.触摸移动有触摸事件
+		touchstart
+		touchmove
+		touchend
+		touchcancel
+		
+	q.触摸有个常见300ms和穿透
+	
+		因为当初iphone刚出来的时候,网页都是pc网页, 在iphone显示看起来太小
+		iphoen浏览器默认支持 双击放大, 
+		iphone检测点击事件, 如果两个点击事件300ms内,双击放大
+
+
+2.触摸事件4个事件使用
+
+
+	q. click事件在手机上能不能用?
+	
+		可以使用
+
+	q.4个事件的使用
+		touchstart  触摸开始
+		touchmove   触摸时移动手指
+		touchend    触摸结束(手指离开屏幕)
+		touchcancel 触摸取消(alert,电话来了)
+	
+
+3.事件对象的属性
+
+	q.如何获取触摸当前的位置
+	
+
+4.fastclick解决300ms和点击穿透  (面试会问的)
+
+	q.因为当初iphone刚出来的时候,网页都是pc网页, 在iphone显示看起来太小
+		iphoen浏览器默认支持 双击放大, 
+		iphone检测点击事件, 如果两个点击事件300ms内,双击放大
+
+	q.点击穿透问题
+		div支持touchstart
+		底下还有a标签(click)
+
+	q.使用fastclick
+	
+		Step1: 把fastclick文件放到当前目录
+		Step2: 在html引入fastclick
+		Step3: 执行一句代码
+			FastClick.attach(document.body)
+
+
+5.腾讯出品手势库 AlloyFinger
+	
+	
+	
+</pre>
+		
+		
+	</body>
+</html>

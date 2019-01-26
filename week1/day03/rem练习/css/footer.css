@@ -1,0 +1,52 @@
+footer{
+    overflow: hidden;
+    height: 0.50rem;
+    position: relative;
+}
+footer ul{
+    width: 3.72rem;
+    position: fixed;
+    bottom: 0;
+    left: 50%;
+    margin-left: -1.86rem;
+    background: #f8f8f8;
+    height: 0.50rem;
+    overflow: hidden;
+}
+footer ul li{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+footer ul li a{
+    display: block;
+    margin-top: 0.07rem;
+}
+footer ul li a span{
+    display: block;
+    color: #737975;
+    font-size: 0.12rem;
+    margin-top: 0.02rem;
+}
+footer ul li a i{
+    display: block;
+    width: 0.18rem;
+    height: 0.18rem;
+    background: url(../img/index.jpg) no-repeat;
+    background-size: 100% 100%;
+    margin: 0 auto;
+}
+footer ul li:nth-child(2) a i{
+    background: url(../img/fenlei.jpg) no-repeat;
+    background-size: 100% 100%;
+}
+footer ul li:nth-child(3) a i{
+    background: url(../img/carts.jpg) no-repeat;
+    width: 0.20rem;
+    background-size: 100% 100%;
+}
+footer ul li:nth-child(4) a i{
+    background: url(../img/tou.jpg) no-repeat;
+    width: 0.15rem;
+    background-size: 100% 100%;
+}

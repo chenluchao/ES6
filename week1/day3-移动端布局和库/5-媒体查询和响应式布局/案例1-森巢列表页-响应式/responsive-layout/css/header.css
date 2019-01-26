@@ -1,0 +1,51 @@
+.header {
+	/*layout*/
+	position: fixed;
+	width: 100%;
+	height: 45px;
+	top: 0;
+	left: 0;
+	z-index: 99999;
+	
+	/*other*/
+	background: #ff495c;
+}
+
+.header .btn-left {
+	/*layout*/
+	display: block;
+	height: 45px;
+	width: 15%;
+	float: left;
+	
+	/*other*/
+	background:  url("../images/index/btn_bg.png") no-repeat;
+	background-position:   8px 6px;
+}
+
+.header .text-input{
+	display: block;
+	position: absolute;
+	left: 15%;
+	height: 26px;
+	width: 65%;
+	top: 9px;
+	border: none;
+	
+	/*other*/
+	border-radius: 25px;
+	padding-left: 10px;
+}
+
+.header .btn-sub{
+	display: block;
+	float: right;
+	width: 40px;
+	height: 26px;
+	border: none;
+	margin-top: 7px;
+	
+	/*other*/
+	background: url(../images/index/btn_search.png) no-repeat 5px 0;
+	background-size: 30px 30px;
+}

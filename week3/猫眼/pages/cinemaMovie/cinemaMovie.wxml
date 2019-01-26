@@ -1,0 +1,4 @@
+<!--pages/cinemaMovie/cinemaMovie.wxml-->
+<text>这是电影购票详情</text>
+<navigator url="/pages/movieDetail/movieDetail">跳转到电影详情</navigator>
+<navigator url="/pages/cinemaDetail/cinemaDetail">跳转到影院详情</navigator>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+
+			//特点1: 函数名之前加 *
+			//特点2: yield只能在 Generator函数中使用
+			//特点3: 这个函数执行返回不是普通, 返回是一个对象
+			function *monster (){
+				
+				//idle
+				yield "idle"
+				
+				//attack
+				yield "attack"
+				
+				//die
+				yield "attack"
+				
+				//hide
+				yield "attack"
+			}
+			
+			//注意1: 返回一个对象 
+			var m = monster ()
+			console.log(m)
+			
+			//next() 函数获取状态,
+			//	状态是个对象
+			//		两个属性 value, done
+			var state = m.next()
+			console.log(state)
+			
+			var state = m.next()
+			console.log(state)
+			
+			var state = m.next()
+			console.log(state)
+			
+			var state = m.next()
+			console.log(state)
+			
+			var state = m.next()
+			console.log(state)
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

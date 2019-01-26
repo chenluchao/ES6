@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#myCanvas{
+				margin-top: 50px;
+				margin-left: 450px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var ctx = myCanvas.getContext("2d");
+			
+			ctx.beginPath();
+			ctx.moveTo(250,200);
+			ctx.arc(200,200,50,0,Math.PI/180*105);
+			ctx.stroke();
+			ctx.fill();
+			
+			ctx.beginPath();
+			ctx.moveTo(250,320);
+			ctx.arc(200,320,50,0,Math.PI/2*3)
+			ctx.stroke();
+		</script>
+	</body>
+</html>

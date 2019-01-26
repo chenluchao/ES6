@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style>
+			pre{
+				font-size: 24px;
+			}
+		</style>
+	</head>
+	<body>
+
+<h2>ECMAScript 6</h2>
+
+<code>
+	地址: http://192.168.1.118/1804/Week2/ES6/doc.html
+</code>
+
+<pre>
+	
+目录
+	1.ES6简述
+	
+	//简单的知识
+	
+	2.变量
+		let
+		const
+		解构赋值
+	3.函数
+		函数参数默认值
+		箭头函数
+		对象中函数
+		rest参数(不定参数)
+		
+	4.类和对象
+		class
+		extends
+		属性简写
+	5.数组方面
+		for of遍历对象
+		...运算符
+		Array新的方法
+		数组的实例的新的方法
+	6.字符串方面
+		模板字符串
+		for of遍历字符
+		字符串查找
+		字符串补位
+	7.数据结构
+		map类型(映射)
+		set类型(集合)
+	
+	//////////////////
+	
+	8.promise (vue,koa,面试)
+	9.async (koa,面试)
+	10.模块化(vue,koa,面试)
+	
+	//////////////////
+	11.proxy 代理
+	12.Generator
+	13.迭代器Iterator
+
+		
+		
+		
+	
+	
+课程内容
+	
+1.ES6简述
+
+	q.什么是es6?
+		es6是ECMAScript 6.0的简称, 是javascript的下一点版本
+	发布于2015年6月
+		
+	q.为什么不叫js6.0, 为啥叫es6
+		很早以前, Java比较火,js的公司,语言命名为javascript
+	ECMA组织制定js标准, java是有版权的,java版权最早是sun公司
+	Oracle收购了sun,新标准命名为ECMAScript 6.0
+	
+	q.es6支持情况
+		chrome现在版本几乎支持所有es6特性
+		
+		注意1: 有个node工具babel可以做es6转es5
+
+2.变量
+	let
+		q.什么是let?
+			注意1: js中变量的作用域只有全局和函数,没有局部
+	
+		q.let如何使用
+			let num=0;
+			
+		q.let的特点
+			让这个变量的作用域到这个区块结束为止
+			let定义的变量具有块级作用域(局部作用域)
+			
+		q.let作用
+			不想让上面的变量干扰下面的,就使用let
+			常见用途: 推荐大家把所有var变为let
+	
+	const
+		q.什么是const变量
+			const是关键字,用于定义只读变量
+			
+		q.如何使用?
+			const pi = 3.14159
+			
+		q.const用在什么地方?
+			定义一些不变的量,pi,e,author..
+			特点: 改动会报错
+			
+		q.const注意什么?
+			(1).初始化的时候需要赋值
+			(2).不要修改,修改会报错
+	
+	解构赋值 
+		q.什么是解构赋值?
+			以前变量赋值, 单个 = 单个
+			现在     结构数据 = 结构数据
+	
+		q.一个简单例子
+			var [a,b] = [10,20]
+			
+		q.另外一个简单例子
+			var {'name':n,'age':a} = 
+				{'name':'zhangan','age':'78'}
+				
+		q.一般什么时候用?
+			(1)函数返回数据不是单个数据,是一个复杂解构
+			(2)从json中取数据(难用)
+	
+3.函数
+	函数参数默认值
+		q.什么是函数参数默认值?
+			有的时候, 函数有参数,有多个,其中一些设置默认值
+			
+		q.如何使用?
+			function sum(x,y)
+			function sum(x=10,y=20)
+			
+		q.特性
+			这个参数如果给了值, 用给的值,没有给,用默认值
+	
+	对象中函数简写(vue中)
+		q.以前对象如何加函数?
+			var dict = {
+				sum:function(x,y){
+					return x+y
+				}
+			}
+			
+		q.可以简化
+			var dict = {
+				sum(x,y){
+					return x+y
+				}
+			}
+			
+	箭头函数[重要] (html,vue,node)
+		q.什么是箭头函数?
+			是匿名函数的简写
+			
+		q.写一个简单的箭头函数
+			
+			
+		q.箭头函数的好处
+			(1)简化回调,少写代码
+			(2)箭头函数作用域是调用处的作用域
+				不写var self = this
+	
+	
+	rest参数(不定参数)
+		q.是啥玩意?
+			实现了给函数传递不定个参数
+			
+		q.如何使用
+			function func(p1,p2, ...list)
+			func(10,20)
+			func(10,20,'a')
+			func(10,20,'a','b')
+	
+4.类和对象
+	类,对象,继承,初始化函数继承
+		q.js原生如何定点类?
+			定义一个变量,初始化为一个匿名函数
+			通过this.name添加属性
+			通过this.say = function(){}添加方法
+			通过new 生成对象
+			
+		q.js原生如何继承一个类
+			//核心代码
+			Person.call(this,name,age,sex)
+	
+	class
+		q.es6如何定义一个类
+			直接使用class
+			格式
+				class 类名{
+					constructor(){
+						this.属性名 = value
+					}
+					say(){
+						
+					}
+				}
+	
+	extends
+		q.es6如何继承一个类
+			格式
+				class 类名 extends 父类{
+					constructor(){
+						super(父类初始化参数)
+						this.属性名 = value
+					}
+					say(){
+						
+					}
+				}
+	
+	属性简写
+		q.什么地方用
+			最多的是vue,写对象
+		q.格式
+			var data = {}
+			var app = {
+				data   //  data:data
+			}
+		
+	
+5.数组方面
+	for of遍历对象
+		q.以前如何遍历?
+			普通for循环
+			for(var index in list)
+			
+		q.新的遍历方式
+			for(var itme of list)
+	
+	...运算符
+		q.常见用法1-展开数组
+			var a1 = ['a','b',...list]
+		
+	
+	Array新的方法
+		//把任意对象转化为数组
+		//对象中需要有属性length
+		Array.from()
+		
+		//用于将一组值,转化为数组
+		Array.of()
+		
+	数组实例方法
+		//数组内复制,将某个位置n的值复制到其他位置
+		arr.copyWithIn()
+		//查找值, 参数是一个回调函数
+		arr.find()
+		
+	
+6.字符串方面
+	模板字符串(Vue用的多,非常好用)
+		q.什么是模板字符串?
+			解决问题1: 字符串用+拼接比较麻烦
+			解决问题2: 实现多行字符串
+	
+	for of遍历字符串
+	字符串查找
+		str.inlcudes() 是否包含字符串
+		str.startsWith 是否有某个前缀
+		str.endsWith 是否有某个后缀
+		
+	字符串补位
+		str.padStart()
+		str.padEnd()
+	
+	
+7.数据结构
+	map类型(映射)
+		q. 什么是map类型?
+			map是映射, 数据结构, 键值对数据结构(对象)
+			
+		q.如何使用?
+			创建
+			设置值
+			获取值
+	
+	
+	set类型(集合)
+		q. 什么是set型?
+			set是集合, 数据结构, 存储不同的数据
+			
+		q.如何使用?
+			创建
+			设置值
+			获取值
+
+//////////////////
+
+8.promise 		[面试,vue,koa]
+
+	q.是什么?
+		promise含义是允诺,承诺,许诺
+		是ES6提供的一种异步化的解决方法
+		
+	q.如何使用
+		实例
+
+
+
+9.async 		[面试,koa]
+
+	q.async是一种异步解决方法, 建立在promise基础
+	
+		让异步调用变成 顺序调用
+		
+	q.具体使用
+		
+		async function request(){
+			
+			var r1 = await requestUrl("login")
+			
+			var r1 = await requestUrl("login")
+			
+			var r1 = await requestUrl("login")
+			
+		}
+		
+		request()
+	
+
+10.模块化		[面试,vue,微信小程序]
+
+
+	q.模块化机制是什么?
+		ES6把js代码,分成一个个的模块, 模块之间有相互依赖的关系
+		
+		
+	q.es6模块化如何使用
+	
+		Step1: 创建一个js, 添加属性, 添加一些函数
+		
+		Step2: 在js的最后,导出属性和变量
+		
+		Step3: 在新的html的js中 import 属性和变量
+		
+	
+//////////////////
+
+11.proxy 代理
+
+	q.proxy什么是代理?
+		现实代理: 你不方便的事情, 交给谁中介去做,中介人就是代理
+		
+		js中proxy:  给原对象添加一个代理对象, 操作代理对象,监控所有set和get
+		
+		为什么使用: 
+	
+	q.如何使用
+		核心: 给原对象创建一个代理对象
+		
+		
+	q.proxy的应用
+		vue3.0底层监控数据改变, 可能会使用
+		
+		实现属性的只读变量
+		
+		数据保护
+	
+	
+
+12.Generator
+
+	q. Generator是es6提供的功能, 理解状态机
+
+	q. 基本使用
+	
+		function *monster (){
+			
+			//idle
+			yield "idle"
+			
+			//attack
+			yield "attack"
+			
+			//die
+			yield "attack"
+			
+			//hide
+			yield "attack"
+		}
+	
+
+
+13.迭代器Iterator
+			
+	q.给任意函数添加一个迭代器,让它能够支持for of操作
+	
+	
+	
+Vue常用ES特性
+
+	let
+	const
+	模块化 import/export
+	对象中属性简写
+	对象中方法简写
+	箭头函数
+	promise中then和catch
+	
+Node中Koa常用用ES特性
+	promise
+	async
+	
+微信小程序
+	es特性很少用
+	
+	
+面试常问
+	promise
+	async
+	箭头函数
+	let变量和const变量
+	class和extends
+	
+	
+
+
+	
+</pre>
+
+		
+	</body>
+</html>

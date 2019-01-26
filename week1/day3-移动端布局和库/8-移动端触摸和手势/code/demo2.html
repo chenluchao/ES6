@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			
+			body{
+				margin: 0;
+			}
+			
+			.mask{
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(0,0,0,0.2);
+			}
+			
+			a{
+				display: block;
+				width: 300px;
+				height: 300px;
+				background-color: lightblue;
+			}
+			
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="mask">
+			
+		</div>
+		<a href="http://www.baidu.com">去百度</a>
+		
+		<script src="jquery.min.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script src="fastclick.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			
+			var clickTime;
+			var touchTime;
+			
+			$(function () {
+				
+				//解决
+				FastClick.attach(document.body)
+				
+				$(".mask").on("click",function(){
+					console.log("click")
+					
+					clickTime = Date.now();
+					console.log("clickTime = "+clickTime)
+					
+				
+					var intervalTime = clickTime - touchTime
+					console.log("intervalTime = "+intervalTime)
+				})
+				
+				
+				$(".mask").on("touchstart",function(){
+					console.log("touchstart")
+					
+					touchTime = Date.now();
+					console.log("touchTime = "+touchTime)
+					
+					//$(this).hide();
+				})
+				
+				
+			})
+			
+		</script>
+		
+	</body>
+</html>

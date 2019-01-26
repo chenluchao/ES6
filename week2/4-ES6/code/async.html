@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function request(url){
+				var promise = new Promise(function(resolve,reject){
+					var b=true;
+					if(url == "getU"){
+						b=false;
+					}
+					setTimeout(function(){
+						if(b){
+							resolve(url+"111")
+						}else{
+							reject(url+"fail")
+						}
+					},2000)
+				})
+				return promise;
+			}
+			//异步
+			request("login").then(function(data){
+				console.log('data = '+data)
+				return request("getU");
+			}).then(function(data){
+				console.log('data = '+data)
+				return request("sendm");
+			}).then(function(data){
+				console.log('data = '+data)
+				console.log("成功")
+			})
+		</script>
+	</body>
+</html>

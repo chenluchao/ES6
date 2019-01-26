@@ -1,0 +1,43 @@
+<!--pages/cinema/cinema.wxml-->
+<!-- <text>pages/cinema/cinema.wxml</text> -->
+
+<view class="pages">
+  <view class="search-box">
+    <view>北京</view>
+    <input></input>
+  </view>
+
+  <view class="filter-box">
+    <view>全城</view>
+    <view>品牌</view>
+    <view>特色</view>
+  </view>
+
+  <view class="cinema-box">
+    <view class="cinema-list">
+      <view class="cinema-item" wx:for="{{cinemas}}" wx:key="{{index}}">
+        <view class='line-ellipsis limit-width'>{{item.nm}} <text class="item-price">{{item.sellPrice}}元起</text></view>
+        <view class='addr-box info'>
+          <view class='line-ellipsis limit-width'>{{item.addr}}</view>
+          <text>{{item.distance}}</text>
+        </view>
+        <view class='info'>
+          {{item.tag.allowRefund?'退款':''}}
+          {{item.tag.endorse?'改签':''}}
+          {{item.tag.snack?'小吃':''}}
+          {{item.tag.vipTag}}
+        </view>
+        <view class='info'>
+          {{item.promotion.platformActivityTag}}
+        </view>
+        <view class='info'>
+          {{item.promotion.cardPromotionTag}}
+        </view>
+        
+      </view>
+    </view>
+
+  </view>
+
+
+</view>

@@ -1,0 +1,62 @@
+<!--pages/search/search.wxml-->
+<!-- <text>pages/search/search.wxml</text> -->
+
+<view class="body">
+
+  <view class="input-box">
+    <input bindinput="dealChange" value="{{keyword}}" placeholder='搜电影、搜影院'></input>
+    <view>取消</view>
+  </view>
+
+  <view class="history-box">
+    <view class="history-list">
+    </view>
+  </view>
+
+  <view class="result-box">
+
+    <view wx:if="{{movies.length>0}}">电影/电视剧/综艺</view>
+    <view class="movie-list">
+        <view class="movie-item" wx:for="{{movies}}" wx:key="{{index}}">
+          <view class="item-left">
+            <image class="item-img" src="{{item.img}}"></image>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==1 || item.showst==2}}">
+            <view class="line-ellipsis">{{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">{{item.wish}}人想看</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.rt}}上映</view>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==3}}">
+            <view class="line-ellipsis">
+              {{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">观众评{{item.sc}}</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.showInfo}}</view>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==4}}">
+            <view class="line-ellipsis">{{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">{{item.wish}}人想看</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.rt}}上映</view>
+            
+          </view>
+          <button class="buy-button normal {{item.showst==4?'pre':''}}">{{item.globalReleased==true?'购票':'预售'}}</button>
+        </view>
+      </view>
+
+     <view  wx:if="{{cinemas.length>0}}">影院</view>
+    <view class="result-list">
+      <view class="cinemas-item" wx:for="{{cinemas}}" wx:key="{{index}}">
+        {{item.nm}}
+      </view>
+    </view>
+  </view>
+
+</view>

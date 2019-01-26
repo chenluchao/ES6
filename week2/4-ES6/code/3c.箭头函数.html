@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			function func(callback){
+				callback()
+			}
+			
+			//方式1
+			func(function(){
+				//console.log("hehe")
+			})
+			
+			//方式2
+			func(  ()=>{
+				//console.log("hehe")
+			} )
+
+			//hello函数
+			//普通函数 
+			var hello = function (){
+				console.log("hehe1")
+			}
+			hello()
+			
+			var hello = ()=>{
+				console.log("hehe2")
+			}
+			hello()
+			
+			//+1函数
+			var add = function (x){
+				return x+1
+			}
+			console.log(add(10))
+			
+			add = (x)=>{
+				return x+1
+			}
+			//如果只有一个参数,可以去掉参数的()
+			add = x=>{
+				return x+1
+			}
+			//如果返回值就是一个语句,去掉{}和return
+			add = x=>x+1
+			console.log(add(30))
+
+			
+			//sum函数
+			//普通
+			var sum = function (x,y){
+				return x+y
+			}
+			
+			var sum = (x,y)=>{
+				return x+y
+			}
+			var sum = (x,y)=>x+y
+			
+			console.log(sum(100,200))
+			
+			
+			var page = {
+				num:10,
+				load:function (){
+					
+					var self = this
+					window.setInterval(function(){
+						
+						//this == window
+						this.num++
+						
+						self.num++
+						console.log("num="+self.num)
+						console.log(this)
+						
+					},1000)
+
+					//箭头函数作用域,是调用处父级作用域
+// 					window.setInterval(()=>{
+// 						console.log("num="+this.num)
+// 						
+// 						this.num++
+// 						console.log(this)
+// 						
+// 					},1000)
+					
+				}
+			}
+
+			
+			
+			
+			page.load()
+			
+		</script>
+		
+		
+	</body>
+</html

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			button:active{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<button onclick="dealClick()">计算</button>
+		</div>
+		<div>
+			结果: <span class="r"></span>
+		</div>
+		
+		<script src="worker.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			var worker=new Worker("worker.js");
+			var r=document.querySelector(".r");
+			var i=20;
+			function dealClick(){
+				
+				worker.postMessage(i);
+				
+				worker.onmessage = function(e){
+					var num = e.data;
+					r.innerHTML = num;
+				}
+				i++;
+			}
+			
+		</script>
+		
+	</body>
+</html>

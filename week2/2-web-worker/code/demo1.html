@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		<style type="text/css">
+			button:active{
+				background-color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<div>
+			<button onclick="dealClick()">计算</button>
+		</div>
+		<div>
+			结果: <span class="r"></span>
+		</div>
+		
+		<script src="fibonacci.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			
+			var r = document.querySelector(".r")
+			function dealClick () {
+				
+				var date1 = Date.now()
+				var num = fibonacci(42)
+				var date2 = Date.now()
+				var d = (date2-date1)/1000
+				r.innerHTML = num +" 耗时="+d+"s"
+			}
+			
+		</script>
+		
+	</body>
+</html>

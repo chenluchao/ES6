@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#myCanvas{
+				margin-top: 50px;
+				margin-left: 450px;
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+		
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas");
+			var ctx = myCanvas.getContext("2d");
+			
+			
+			ctx.fillStyle="red";
+			ctx.font = "24px normal"
+			ctx.fillText("Life:3",10,30);
+			ctx.font = "32px normal"
+			ctx.strokeStyle="blue";
+			ctx.strokeText("HP:100",100,30)
+			
+		</script>
+	</body>
+</html>

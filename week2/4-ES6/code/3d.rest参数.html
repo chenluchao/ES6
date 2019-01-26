@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			function func(p1,p2, ...list){
+				console.log(list)
+				for(var i=0;i<list.length;i++){
+					var p = list[i]
+					console.log("p = "+p)
+				}
+			}
+			
+			func(10,20)
+			func(10,20,'a')
+			func(10,20,'a','b')
+			
+			//实例
+			//实现函数 sum(), 参数传递多个值,
+			//返回这些参数的和
+			function sum(...list){
+				var s = 0
+				for(var i=0;i<list.length;i++){
+					var p = list[i]
+					s += p
+				}
+				return s
+			}
+			
+			var s = sum(10,20,30)
+			console.log("s = "+s)
+			
+		</script>
+		
+		
+	</body>
+</html

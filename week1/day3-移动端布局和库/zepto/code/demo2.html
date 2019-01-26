@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style type="text/css">
+			
+			body{
+				margin: 0;
+			}
+			
+			.navbar{
+				width: 100%;
+				height: 44px;
+				text-align: center;
+				line-height: 44px;
+				border-bottom: 1px solid #666;
+				background-color: lightblue;
+			}
+			
+			.cell{
+				width: 100%;
+				height: 44px;
+				padding-left: 20px;
+				line-height: 44px;
+				border-bottom: 1px solid #ccc;
+				background-color: #fcfcfc;
+				box-sizing: border-box;
+			}
+			
+			.delete{
+				display: none;
+				width: 60px;
+				height: 100%;
+				background-color: red;
+				float: right;
+				text-align: center;
+				color: #fafafa;
+				font-weight: bold;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="navbar">
+			聊天列表
+		</div>
+		
+		<div class="tableview">
+			<div class="cell">
+				阿花
+				<span class="delete">
+					删除
+				</span>
+			</div>
+			<div class="cell">
+				阿美
+				<span class="delete">
+					删除
+				</span>
+			</div>
+			<div class="cell">
+				阿猫
+				<span class="delete">
+					删除
+				</span>
+			</div>
+			<div class="cell">
+				阿狗
+				<span class="delete">
+					删除
+				</span>
+			</div>
+		</div>
+		
+		<script src="zepto/zepto.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="zepto/event.js" type="text/javascript" charset="utf-8"></script>
+		<script src="zepto/touch.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			
+			//swipe 滑动
+			//swipeRight 右滑
+			//swipeLeft 左滑
+			$(".tableview .cell").swipeLeft(function () {
+				console.log("swipe")
+				
+				//this = 当前的cell
+				
+				$(".delete").hide()
+				
+				$(".delete",this).show()
+				$(this).swipeRight(function(){
+					$(".delete",this).hide();
+				});
+			});
+			
+			// tap 点击
+			$(".delete").tap(function () {
+				
+				//this = span
+				
+				$(this).parent().remove()
+			})
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

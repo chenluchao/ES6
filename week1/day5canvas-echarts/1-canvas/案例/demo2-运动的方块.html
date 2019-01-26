@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+
+		<style>
+			#myCanvas{
+				border: 1px solid black;
+			}
+		</style>
+	</head>
+	<body>
+
+		<canvas id="myCanvas" width="400" height="400"></canvas>
+
+		<script type="text/javascript">
+			var myCanvas = document.getElementById("myCanvas")
+			//getContext作用: 获取绘图上下文
+			//	参数传入2d, 2d绘图
+			//	参数传入webgl, 表示3d绘图
+			var ctx = myCanvas.getContext("2d")
+			var canvasWidth = 400
+			var canvasHeight = 400
+			
+			var rect1 = {
+				x: 0,
+				y: 0,
+				w: 100,
+				h: 100,
+				xSpeed: 20,
+				ySpeed: 4.4
+			}
+
+			setInterval(function() {
+
+				/*
+				var r = parseInt(Math.random()*255)
+				var g = parseInt(Math.random()*255)
+				var b = parseInt(Math.random()*255)
+				var a = Math.random()
+				ctx.fillStyle = "rgba("+r+","+g+","+b+","+a+")"
+				
+				var x = Math.random()*400
+				var y = Math.random()*400
+				var w = 10+Math.random()*50
+				var h = 10+Math.random()*50
+				ctx.fillRect(x,y,w,h)
+				*/
+
+				ctx.clearRect(0, 0, canvasWidth, canvasHeight)
+				
+				
+				if(rect1.y > canvasHeight - rect1.h){
+					rect1.ySpeed = - rect1.ySpeed
+				}
+				if(rect1.y <0){
+					rect1.ySpeed = - rect1.ySpeed
+				}
+				if(rect1.x > canvasWidth - rect1.w){
+					rect1.xSpeed = - rect1.xSpeed
+				}
+				if(rect1.x <0){
+					rect1.xSpeed = - rect1.xSpeed
+				}
+
+				rect1.x += rect1.xSpeed
+				rect1.y += rect1.ySpeed
+
+				ctx.fillRect(rect1.x, rect1.y, rect1.w, rect1.h)
+
+
+
+			}, 1000 / 60)
+		</script>
+
+	</body>
+</html>

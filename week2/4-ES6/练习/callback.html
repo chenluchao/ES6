@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function requestUrl(url,success,fail){
+				setTimeout(function(){
+					
+					var b = 1;
+					if(b){
+						success(url+"success");
+					}else{
+						fail(url+"fail");
+					}
+				},2000)
+			}
+			
+			requestUrl("login",function(data){
+				console.log(data);
+				
+				requestUrl("getUser",function(data){
+					console.log(data);
+					requestUrl("send",function(data){
+						console.log(data)
+						console.log("3次成功")
+					},function(data){
+						console.log(data)
+					})
+				},function(data){
+					console.log(data);
+				})
+				
+			},function(data){
+				console.log(data);
+			});
+		</script>
+	</body>
+</html>

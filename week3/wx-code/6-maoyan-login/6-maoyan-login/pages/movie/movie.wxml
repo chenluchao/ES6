@@ -1,0 +1,102 @@
+<!--pages/movie/movie.wxml-->
+<!-- <text>pages/movie/movie.wxml</text>
+
+
+<navigator url="/pages/movieDetail/movieDetail">电影1</navigator>
+<navigator url="/pages/movieDetail/movieDetail">电影2</navigator>
+<navigator url="/pages/movieDetail/movieDetail">电影3</navigator>
+
+<navigator url="../movieDetail/movieDetail">电影4</navigator> -->
+
+<view>
+
+  <view class='top'>
+    <view>
+      <navigator url="/pages/citySelect/citySelect">
+        {{city.nm}}
+      </navigator>
+    </view>
+    <view class='select-box {{showIndex==2?"coming":""}}'>
+      <view class='select-box-item' bindtap="dealChange" data-index="1">正在上映</view>
+      <view class='select-box-item coming' bindtap="dealChange" data-index="2">即将上映</view>
+    </view>
+    <view>
+      <navigator url="/pages/search/search">搜索</navigator>
+    </view>
+  </view>
+
+  <view class='content'>
+  
+    <!-- <view class="subpage" wx:if="{{showIndex==1}}"> -->
+    <view class="subpage" style='{{showIndex==1?"":"visibility: hidden"}}'>
+      <!-- 11111111 -->
+      <view class="movie-list">
+        <view class="movie-item" wx:for="{{movieOnInfoList}}" wx:key="{{index}}">
+          <view class="item-left">
+            <image class="item-img" src="{{item.img}}"></image>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==3}}">
+            <view class="line-ellipsis">
+              {{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">观众评{{item.sc}}</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.showInfo}}</view>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==4}}">
+            <view class="line-ellipsis">{{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">{{item.wish}}人想看</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.rt}}上映</view>
+            
+          </view>
+          <button class="buy-button normal {{item.showst==4?'pre':''}}">{{item.globalReleased==true?'购票':'预售'}}</button>
+        </view>
+      </view>
+    </view>
+
+    <!-- <view class="subpage" wx:if="{{showIndex==2}}"> -->
+    <view class="subpage" style='{{showIndex==2?"":"visibility: hidden"}}'>
+
+      <!-- 最受期待 -->
+      <view class="mostExperted-list">
+        <view class="mostExperted-item" wx:for="{{mostExperted}}" wx:key="{{index}}">
+          {{item}}
+        </view>
+      </view>
+
+      <!-- 底部即将上映 -->
+      <view class="movie-list">
+        <view class="movie-item" wx:for="{{comingList}}" wx:key="{{index}}">
+          <view class="item-left">
+            <image class="item-img" src="{{item.img}}"></image>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==1}}">
+            <view class="line-ellipsis">{{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">{{item.wish}}人想看</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.rt}}上映</view>
+          </view>
+          <view class="item-right" wx:if="{{item.showst==4}}">
+            <view class="line-ellipsis">{{item.nm}}
+              <view class="version {{item.version}}"></view>
+            </view>
+            <view class="line-ellipsis">{{item.wish}}人想看</view>
+            <view class="line-ellipsis">主演: {{item.star}}</view>
+            <view class="line-ellipsis">{{item.rt}}上映</view>
+            
+          </view>
+
+          <button class="buy-button normal {{item.showst==4?'pre':''}} {{item.showst==1?'toggle-wish-button':''}}">{{item.showst==1?'想看':'预售'}}</button>
+        </view>
+      </view>
+    </view>
+  
+  </view>
+
+</view>

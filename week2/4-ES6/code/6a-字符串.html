@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			//如何定义一个多行字符串
+			
+			var l = 'left'
+			var r = 'right'
+			var t = 'title'
+			
+// 			var html = "<div>\
+// 							<div>"+l+"</div>\
+// 							<div>"+t+"</div>\
+// 							<div>"+r+"</div>\
+// 						</div>"
+// 			
+// 			console.log(html)
+			
+			//es6 模板字符串
+			
+			//特点1: ${}显示变量
+			//特点2: 可以换行
+			var html = `<div>
+							<div>${l}</div>
+							<div>${t}</div>
+							<div>${r}</div>
+						</div>`
+				
+			console.log(html)
+			
+			//for-of遍历字符串
+			var str = "hello world"
+			for(var c of str){
+				console.log("c = "+c)
+			}
+			
+			var str = "http://www.baidu.com/a.php"
+			console.log(str.includes('baidu.com'))
+			console.log(str.startsWith('http://'))
+			console.log(str.endsWith('.php'))
+			
+			var num = "9";
+			num = num.padStart(2,'0')
+			console.log(num)
+			
+			num = num.padEnd(5,'0')
+			console.log(num)
+			
+		</script>
+		
+		
+	</body>
+</html>

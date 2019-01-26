@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			:root{
+				background-color: #fcfcfc;
+			}
+			
+			/* first-child */
+			.s2>div:first-child{
+				/* color: red; */
+			}
+			.s2>div:last-child{
+				/* color: blue; */
+			}
+			.s2>div:nth-child(odd){
+				background-color: #ddd
+			}
+			.s2>div:nth-child(even){
+				background-color: #eee
+			}
+			
+			.s3>:target{
+				background-color: yellow;
+			}
+			
+			.s4>::selection{
+				color: red;
+				background-color: yellow;
+			}
+			
+			.s5>p:only-child{
+				color: red;
+				background-color: yellow;
+			}
+			
+			.s6>:empty{
+				height: 20px;
+				background-color: yellow;
+			}
+			
+		</style>
+	</head>
+	<body>
+		
+		<div class="s2">
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+			<div >item1</div>
+		</div>
+
+		<div class="s3">
+			
+			<p><a href="#link1">A</a></p>
+			<p><a href="#link2">B</a></p>
+			
+			<div style="height: 10px;">
+				
+			</div>
+			
+			<p id="link1">AAAA</p>
+			<p id="link2">BBBB</p>
+			
+			<div class="s4">
+				<p>我们都是社会主义好青年,社会主义的接班人</p>
+			</div>
+		</div>
+		
+		<div class="s5">
+			<p>1111</p>
+			<p>2222</p>
+		</div>
+		
+		<div class="s6">
+			<p></p>
+		</div>
+		
+	</body>
+</html>

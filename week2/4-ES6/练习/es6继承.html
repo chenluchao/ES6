@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			class Person{
+				constructor(name,age,sex){
+					this.name=name;
+					this.age=age;
+					this.sex=sex;
+				}
+				say(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex)
+				}
+				
+			}
+			
+			var zs = new Person('zs',18,'boy')
+			zs.name="zhengsan";
+			zs.say();
+			
+			//继承
+			class Student extends Person{
+				constructor(name,age,sex,score){
+					super(name,age,sex);
+					this.score=score;
+				}
+				say(){
+					console.log("I am "+this.name+" age="+this.age+" sex="+this.sex+" score="+this.score)
+				}
+			}
+			
+			var ming = new Student('小明',18,'boy',99);
+			ming.say();
+		</script>
+	</body>
+</html>

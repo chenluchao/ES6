@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		
+		<style type="text/css">
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.wrap{
+				display: flex;
+				
+				flex-direction: column;
+			}
+			
+			.top{
+				height: 30px;
+				background-color: lightpink;
+			}
+			.menu{
+				height: 30px;
+				background-color: lightcyan;
+			}
+			.nav{
+				height: 30px;
+				background-color: lightseagreen;
+			}
+			.bottom{
+				height: 30px;
+				background-color: limegreen;
+			}
+			
+			.flex-container{
+				border: 1px solid black;
+				
+				display: flex;
+			}
+			.d1{
+				width: 100px;
+				background-color: lightblue;
+			}
+			.d2{
+				flex-grow: 1;
+				background-color: lightcoral;
+			}
+			.d3{
+				width: 100px;
+				background-color: lightyellow;
+			}
+			.h50{
+				height: 50px;
+			}
+			.h100{
+				height: 100px;
+			}
+			.h200{
+				height: 200px;
+			}
+			.h300{
+				height: 300px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		
+		<div class="wrap">
+			<div class="top">
+				top
+			</div>
+			<div class="menu">
+				menu
+			</div>
+			<div class="nav">
+				nav
+			</div>
+			<div class="flex-container">
+				<div class="d1 h300">
+					1
+				</div>
+				<div class="d2 h300">
+					2
+				</div>
+				<div class="d3 h300">
+					3
+				</div>
+			</div>
+			<div class="bottom">
+				bottom
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

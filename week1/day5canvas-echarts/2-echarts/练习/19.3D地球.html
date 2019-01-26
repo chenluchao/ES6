@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/echarts.js"></script>
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script type="text/javascript" src="js/gl.js"></script>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			#main {
+				width: 600px;
+				height: 400px;
+				margin: 50px auto;
+				border: 1px solid #f90;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="main"></div>
+
+		<script type="text/javascript">
+			var tag = document.getElementById("main");
+			var myChart = echarts.init(tag);
+
+			option = {
+				backgroundColor: '#000',
+				globe: {
+					baseTexture: 'images/earth.jpg',
+					heightTexture: 'images/bathymetry_bw_composite_4k.jpg',
+
+					displacementScale: 0.1,
+
+					shading: 'lambert',
+
+					environment: 'images/starfield.jpg',
+
+					light: {
+						ambient: {
+							intensity: 0.1
+						},
+						main: {
+							intensity: 1.5
+						}
+					},
+
+					layers: [{
+						type: 'blend',
+						blendTo: 'emission',
+						texture: 'images/night.jpg'
+					}, {
+						type: 'overlay',
+						texture: 'images/clouds.png',
+						shading: 'lambert',
+						distance: 5
+					}]
+				},
+				series: []
+			}
+
+			myChart.setOption(option);
+		</script>
+
+	</body>
+
+</html>

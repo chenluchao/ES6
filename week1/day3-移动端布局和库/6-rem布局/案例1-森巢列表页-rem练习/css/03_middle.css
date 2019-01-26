@@ -1,0 +1,49 @@
+body {
+	background: #f7f7f7;
+}
+
+.list {
+	margin: 0.44rem auto;
+}
+
+.list li {
+	border-bottom: 0.01rem solid #ddd;
+	padding: 0.1rem;
+	box-sizing: border-box;
+	overflow: hidden;
+}
+
+.list li .left-pic {
+	width: 30%;
+	float: left;
+}
+
+.list li .left-pic img {
+	width: 100%;
+}
+
+.list li .right-info {
+	width: 70%;
+	float: left;
+	padding: 0.1rem;
+	box-sizing: border-box;
+}
+
+.list li .right-info .right-title {
+	display: block;
+	font-size: 0.16rem;
+}
+
+.list li .right-info .marketPrice {
+	display: block;
+	font-size: 0.14rem;
+	text-decoration: line-through;
+}
+
+.list li .right-info .vipPrice {
+	display: block;
+	font-size: 0.18rem;
+	color: red;
+}
+
+

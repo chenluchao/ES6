@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+		
+		<style>
+			
+			body{
+				margin: 0;
+				padding: 0;
+			}
+			ul,li{
+				list-style: none;
+				
+			}
+			
+			.top{
+				height: 140px;
+				border: 1px solid #000;
+			}
+			
+			.bottom{
+				height: 60px;
+				border: 1px solid #000;
+			}
+			.bottom li{
+				display: inline-block;
+			}
+			.menu{
+				border: 1px solid #000;
+				height: 60px;
+			}
+			.menu li{
+				display: inline-block;
+				
+			}
+			.page-content{
+				height: 600px;
+			}
+		</style>
+		
+		<!--[if lte IE 9]>
+			<script src="js/html5.min.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		
+		<div class="wrap">
+			
+			<header class="top">
+				XX网站注册界面
+			</header>
+			
+			<nav class="menu">
+				<ul>
+					<li>首页</li>
+					<li>商品分类</li>
+					<li>购物车</li>
+					<li>最新活动</li>
+					<li>用户中心</li>
+					<li>帮助中心</li>
+				</ul>
+			</nav>
+			
+			<section class="page-content">
+				
+				<h1>用户注册界面</h1>
+				
+				<form action="">
+					
+					<dl>
+						<dt>* 用户名</dt>
+						<dd>
+							<input type="text" required autofocus>
+							<div>
+								请输入用户名,长度6~15
+							</div>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>* 密码</dt>
+						<dd>
+							<input type="password" required>
+							<div>
+								请输入密码,长度6~15
+							</div>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>* 重复密码</dt>
+						<dd>
+							<input type="password" required>
+							<div>
+								请输入密码,长度6~15
+							</div>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>* email</dt>
+						<dd>
+							<input type="email" required="">
+							<div>
+								请输入email
+							</div>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>个人网址</dt>
+						<dd>
+							<input type="url">
+							<div>
+								请输入用户名
+							</div>
+						</dd>
+					</dl>
+					
+					<dl>
+						<dt>* 手机号</dt>
+						<dd>
+							<input type="text" required="" pattern="1[0-9]{10}">
+							<div>
+								请输入用户名
+							</div>
+						</dd>
+					</dl>
+					
+					<input type="submit" value="提交" />
+					
+				</form>
+				
+				
+			</section>
+			
+			<footer class="bottom">
+				
+				友情链接:
+				<ul>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+					<li><a href="http://www.baidu.com">链接1</a></li>
+				</ul>
+				
+			</footer>
+			
+		</div>
+		
+	</body>
+</html>

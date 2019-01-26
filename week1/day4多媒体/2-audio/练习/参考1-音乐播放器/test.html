@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				padding: 0;
+				margin: 0;
+			}
+			
+			.box {
+				width: 500px;
+				height: 380px;
+				margin: 150px auto;
+				box-shadow: 0 0 40px rgba(0, 0, 0, 0.8);
+				background: #222;
+				border-radius: 10px;
+				overflow: hidden;
+				color: rgba(255, 255, 255, 0.4);
+			}
+			
+			.head {
+				width: 100%;
+				height: 150px;
+				display: flex;
+				background: black;
+			}
+			
+			.img {
+				width: 30%;
+				height: 100%;
+				background: black;
+			}
+			
+			.pic {
+				width: 80%;
+				height: 80%;
+				margin-left: 10%;
+				margin-top: 10%;
+				border-radius: 50%;
+				overflow: hidden;
+			}
+			
+			.pic img {
+				display: block;
+				border: none;
+				width: 100%;
+				height: 100%;
+			}
+			
+			.title {
+				width: 50%;
+				height: 100%;
+			}
+			
+			.title>p:first-child {
+				text-align: center;
+				margin-top: 30px;
+				color: rgba(255, 255, 255, 0.4);
+				font-size: 30px;
+			}
+			
+			.title>p:last-child {
+				text-align: center;
+				margin-top: 10px;
+				color: rgba(255, 255, 255, 0.4);
+			}
+			
+			.but {
+				width: 15%;
+				height: 100%;
+				margin-left: 5%;
+			}
+			
+			.but p:first-child {
+				margin-top: 30px;
+			}
+			
+			.but p {
+				margin-top: 10px;
+			}
+			
+			.but p span {
+				cursor: pointer;
+				color: rgba(255, 255, 255, 0.4);
+			}
+			
+			.con {
+				width: 100%;
+				height: 230px;
+			}
+			
+			.con>p:first-child {
+				width: 100%;
+				height: 104px;
+				font-size: 52px;
+				text-align: center;
+				line-height: 104px;
+			}
+			
+			.qh {
+				width: 100%;
+				height: 72px;
+				line-height: 72px;
+			}
+			
+			.qh span {
+				display: inline-block;
+				font-size: 18px;
+			}
+			
+			.qh span:first-child {
+				margin-left: 100px;
+				margin-right: 70px;
+			}
+			
+			.qh span:last-child {
+				margin-left: 70px;
+			}
+			
+			.con>span {
+				display: inline-block;
+				width: 270px;
+				height: 2px;
+				background: white;
+				cursor: pointer;
+				margin-left: 110px;
+				position: relative;
+			}
+			
+			.con>span b {
+				position: absolute;
+				left: 0;
+				top: 0;
+				display: inline-block;
+				width: 0;
+				height: 100%;
+				background: red;
+			}
+			
+			h6 {
+				margin-top: 15px;
+			}
+			
+			h6 b {
+				cursor: pointer;
+				font-size: 12px;
+				margin-left: 90px;
+			}
+			
+			h6 b:last-child {
+				margin-left: 265px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="bao">
+			<audio src="audio/azn.mp3" width="400px" height="300px"></audio>
+			<div class="box">
+				<div class="head">
+					<div class="img">
+						<div class="pic">
+							<img src="img/qinaide.jpg" />
+						</div>
+					</div>
+					<div class="title">
+						<p>亲爱的</p>
+						<p>潘玮柏</p>
+					</div>
+					<div class="but">
+						<p><span>随机</span></p>
+						<p><span>展开</span></p>
+						<p><span>喜欢</span></p>
+					</div>
+				</div>
+				<div class="con">
+					<p class="wan">00:00</p>
+					<div class="qh">
+						<span>上一首</span>
+						<span>播放</span>
+						<span>下一首</span>
+					</div>
+					<span class="jd"><b class="over"></b></span>
+					<h6>
+						<b>静音</b><b>全音</b>
+					</h6>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="jquery.min.js"></script>
+		<script type="text/javascript">
+			var player = document.querySelector("audio");
+			$(".qh span").eq(1).click(function() {
+					player.play();
+			});
+			$("h6 b").eq(0).click(function() {
+				if(!player.muted) {
+					player.muted = true;
+				} else {
+					player.muted = false;
+				}
+			});
+			$("h6 b").eq(1).click(function() {
+				player.muted = false;
+				player.volume = 1;
+			});
+			
+			//时间显示
+			var sec_to_time = function(s) {
+				var t;
+				if(s > -1) {
+					var hour = Math.floor(s / 60) % 60;
+					var min = s % 60;
+					if(hour < 10) {
+						t = '0' + hour + ":";
+					} else {
+						t = hour + ":";
+					}
+
+					if(min < 10) { t += "0"; }
+					t += min;
+				}
+				return t;
+			}
+			
+			//显示播放时间、总时间进度条、已播放的进度条高亮。
+			var width = $(".jd").width();
+			setInterval(function() {
+				if(player.currentTime) {
+					$(".wan").html(sec_to_time(parseInt(player.currentTime)));
+				}
+				if(player.duration) {
+					var bi = player.currentTime / player.duration;
+					var tiao = bi * width;
+					$(".over").css({
+						width: tiao
+					})
+				}
+			}, 100)
+
+			//点击进度条控制进度
+			$(".jd").mousedown(function() {
+				$(window).mousemove(function(e){
+					var x = e.offsetX;
+					var b = x / width;
+					console.log(b)
+					player.currentTime = b * player.duration;
+				});
+				$(window).mouseup(function(){
+					$(window).off('mousemove')
+				});
+			});
+		</script>
+	</body>
+
+</html>

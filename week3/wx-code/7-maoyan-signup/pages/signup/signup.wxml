@@ -1,0 +1,43 @@
+<!--pages/signup/signup.wxml-->
+<!-- <text>pages/signup/signup.wxml</text> -->
+
+<view>
+
+	<view class='title-box'>
+		<view class='{{step>=1?"title-active":""}}'>输入手机号</view>
+		<text decode='true'>&gt;</text>
+		<view class='{{step>=2?"title-active":""}}'>输入验证码</view>
+		<text decode='true'>&gt;</text>
+		<view class='{{step>=3?"title-active":""}}'>设置密码</view>
+	</view>
+
+	<view class='content' wx:if='{{step==1}}'>
+		
+		<input type="text" value='{{mobile}}' bindinput='dealInput' data-key='mobile' placeholder='请输入手机号'></input>
+		<checkbox-group bindchange="checkboxChange" class="btn-wrapper">
+			<checkbox name="user-confirm" checked="{{isComfirm}}"></checkbox>
+            我已阅读并同意《美团网用户协议》
+		</checkbox-group>
+
+		<button class='button-disable {{isMobileTwoValidate&&isComfirm?"button-active":""}}' bindtap="dealGetSms">获取验证码</button>
+
+	</view>
+	<view class='content' wx:if='{{step==2}}'>
+		<input value='{{code}}' bindinput='dealInput' data-key='code' placeholder='请输入验证码'></input>
+
+		<button class='button-disable button-active' bindtap="dealCheckSms">提交验证码</button>
+
+	</view>
+	<view class='content' wx:if='{{step==3}}'>
+
+		<input value='{{password}}' bindinput='dealInput' data-key='password' placeholder='请输入密码'></input>
+	
+		<input value='{{rePassword}}'  bindinput='dealInput' data-key='rePassword' placeholder='请输入重复密码'></input>
+
+		<button class='button-disable button-active' bindtap="dealSignup">注册</button>
+
+	</view>
+
+
+
+</view>

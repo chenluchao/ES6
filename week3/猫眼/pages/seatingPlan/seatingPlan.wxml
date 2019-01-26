@@ -1,0 +1,3 @@
+<!--pages/seatingPlan/seatingPlan.wxml-->
+<text>这是选座界面</text>
+<navigator url="/pages/createOrder/createOrder">跳转到创建订单页面</navigator>

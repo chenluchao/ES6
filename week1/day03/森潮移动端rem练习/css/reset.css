@@ -1,0 +1,60 @@
+body,html,h1,h2,h3,h4,h5,h6,ul,li,dl,dt,dd,input,button,p,ol{
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-size: 0.12rem;
+	color: #666;
+}
+h1,h2,h3,h4,h5,h6{
+	font-weight: normal;
+	font-size: 0.14rem;
+}
+i,b,em,cite{
+font-style: normal;
+}
+ul,ol{
+	list-style: none;
+}
+a:hover,a:active,a:visited,a:link{
+	color: #333;
+	text-decoration: none;
+}
+img{
+	display: block;
+}
+.l{
+	float: left;
+}
+.r{
+	float: right;
+}
+.clear{
+	clear: both;
+}
+.clearfix:after{
+	content: "";
+	width: 0;
+	height: 0;
+	display: block;
+	clear: both;
+	visibility: hidden;
+}
+.hid{
+	overflow: hidden;
+}
+.rel{
+	position: relative;
+}
+.abs{
+	position: absolute;
+}
+.fix{
+	position: fixed;
+}
+.hidden{
+	display: none;
+}
+.show{
+	display: block;
+}

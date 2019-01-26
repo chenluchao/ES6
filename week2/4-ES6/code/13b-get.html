@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+
+			var list = ['a','b','c']
+			for(var v of list){
+				console.log("v = "+v)
+			}
+			
+			var dict = {
+				'name':'zs',
+				'age':15
+			}
+// 			for(var v of dict){
+// 				console.log("v = "+v)
+// 			}
+
+			var dsclass = {
+				"name":"1804",
+				"members":[
+					"niuzhuan",
+					"chenlong",
+					"keke",
+					"qiqi"
+				],
+				getMember(index){
+					return this.members[index]
+				},
+				getCount(){
+					return this.members.length
+				}
+			}
+			
+			
+			for(var i=0; i<dsclass.getCount(); i++){
+				var name = dsclass.getMember(i)
+				console.log("name = "+name)
+			}
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

@@ -1,0 +1,14 @@
+/* pages/hello/hello.wxss */
+
+.box1{
+  width: 200px;
+  height: 200px;
+  background-color: lightblue;
+  border: 1px solid gray;
+}
+
+#box2{
+  width: 700rpx;
+  height: 750rpx;
+  background-color: rgb(173, 230, 178);
+}

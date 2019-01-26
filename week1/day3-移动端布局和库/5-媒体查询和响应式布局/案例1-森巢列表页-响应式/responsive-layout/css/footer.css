@@ -1,0 +1,92 @@
+.footer{
+	position: fixed;
+	width: 100%;
+	height: 49px;
+	bottom: 0px;
+	left: 0;
+	z-index: 9999;
+	
+	
+	/*other*/
+	background-color: #333;
+	border-top: 1px solid #1d1d1d;
+}
+
+.footer .footer-nav a{
+	display: block;
+	float: left;
+	width: 25%;
+	height: 100%;
+	
+	/*other*/
+}
+
+.footer .home,
+.footer .category,
+.footer .cartgoods,
+.footer .i
+{
+	display: block;
+	width: 18px;
+	height: 18px;
+	margin: 5px auto;
+	
+	/*other*/
+	background: url(../images/index/btn_nav.png) no-repeat;
+	
+}
+.footer .home{
+	background-size: 36px 80px;
+}
+.footer .category{
+	background-size: 36px 95px;
+	background-position: 0 -20px;
+}
+.footer .cartgoods{
+	background-size: 40px 105px;
+	background-position: 0 -60px;
+}
+.footer .i{
+	background-size: 40px 105px;
+	background-position: 0 -80px;
+}
+
+.footer .footer-nav a li span{
+	display: block;
+	text-align: center;
+	margin-top: 2px;
+	
+	/*other*/
+	font-size: 1em;
+	color: #ddd;	
+}
+
+
+.footer a:hover li span {
+	color: #FF3838
+}
+
+.footer a.active li span {
+	color: #FF3838
+}
+
+.footer a.active li .home {
+	background-size: 36px 80px;
+	background-position: -18px 0;
+}
+
+.footer a.active li .cartgoods {
+	background-size: 36px 95px;
+	background-position: -18px -20px;
+}
+
+
+.footer a.active li .category {
+	background-size: 40px 105px;
+	background-position: -20px -60px;
+}
+
+.footer a.active li .i {
+	background-size: 40px 105px;
+	background-position: -21px -80px;
+}

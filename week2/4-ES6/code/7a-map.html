@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title></title>
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+			
+			
+			//创建
+			let map = new Map();
+			
+			//设置值
+			map.set('name','pengpeng')
+			map.set('age','23')
+			map.set('sex','boy')
+			
+			//获取
+			var a = map.get('age')
+			console.log("a = "+a)
+			
+			//遍历
+			for(var [k,v] of map){
+				console.log("k = "+k)
+				console.log("v = "+v)
+			}
+			
+			
+			
+			
+			
+		</script>
+		
+		
+	</body>
+</html>

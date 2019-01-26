@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.box{
+				width: 200px;
+				height: 200px;
+				background: lightcoral;
+			}
+		</style>
+	</head>
+	<body>
+		<script src="vconsole.min.js" type="text/javascript" charset="utf-8"></script>
+		<div class="box"></div>	
+		<script type="text/javascript">
+			var v=new VConsole();
+			var a=document.querySelector(".box");
+			a.onclick=function(){
+				console.log("111");
+			}
+		</script>
+	</body>
+</html>
